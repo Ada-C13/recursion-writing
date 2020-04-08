@@ -60,29 +60,59 @@ def nested(s)
     end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def search(array, value)
-    raise NotImplementedError, "Method not implemented"
+    # base case: return false if array is empty
+    # recursive case: return search(array[1..-1], value)
+    return false if array.empty?
+
+    if array[0] == value
+        return true
+    else
+        return search(array[1..-1], value)
+    end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def is_palindrome(s)
-    # def mystery7(word)
-    #     if word.length < 2
-    #       return true
-    #     elsif word[0] != word[-1]
-    #       return false
-    #     else
-    #       puts word[1..-2]
-    #       return mystery7(word[1..-2])
-    #     end
-    #   end
+    # base case: return true for empty string
+    # recursive case: return is_palindrome(s[1..-2])
+    if s.length == 0
+        return true
+    elsif s[0] != s[-1]
+        return false
+    else
+        return is_palindrome(s[1..-2])
+    end
 end
 
-# Time complexity: ?
-# Space complexity: ?
-def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+# Time complexity: O(log base 10 of n)
+# Space complexity: O(log base 10 of n)
+def digit_match(num1, num2)
+    # base case: return match count when length of either a or b is 0
+    # recursive case: return digit_match(a[0..-2], b[0..-2])
+
+    # check ones place first
+    if num1 < 10 || num2 < 10
+        return num1 % 10 == num2 % 10 ? 1 : 0
+    end
+
+    # if both nums > 10, check at least tens place
+    if num1 % 10 == num2 % 10
+        return 1 + digit_match(num1/10, num2/10)
+    end
+
+    return digit_match(num1/10, num2/10)
 end
+
+# couldn't get the below to work?:
+# if a[-1] == nil || b[-1] == nil
+#     return 0
+# elsif a[-1] != b[-1]
+#     puts "Here's a[0..-2]: #{a[0..-2]}"
+#     return digit_match(a[0..-2], b[0..-2])
+# else
+#     return 1 + digit_match(a[0..-2], b[0..-2])
+# end
