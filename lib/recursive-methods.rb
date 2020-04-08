@@ -34,38 +34,29 @@ def reverse_inplace(s)
     return s[-1] + reverse(s[0..-2])
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+    # base case: return 0 when n == 0
+    # recursive case: return 2 + bunny(n-1)
+    return 0 if n == 0
+    return 2 + bunny(n-1)
 end
 
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def nested(s)
-    # for every (, we need a )
-    # base case would be the empty string or one set
-        # return true
-        # else return false
-    # recurse if not empty or one
+    # base case: empty string or one pair of parens
+    # recursive case: nested(s[1..-2])
+    return false if s.length.odd?
 
-    # def mystery7(word)
-    #     if word.length < 2
-    #       return true
-    #     elsif word[0] != word[-1]
-    #       return false
-    #     else
-    #       puts word[1..-2]
-    #       return mystery7(word[1..-2])
-    #     end
-    #   end
-# ()
-
-    if s == ""
+    if s == "()" || s == ""
         return true
-    else 
-        return nested(s)
+    elsif s[0] != "(" || s[-1] != ")"
+        return false
+    else
+        return nested(s[1..-2])
     end
 end
 
@@ -78,7 +69,16 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
+    # def mystery7(word)
+    #     if word.length < 2
+    #       return true
+    #     elsif word[0] != word[-1]
+    #       return false
+    #     else
+    #       puts word[1..-2]
+    #       return mystery7(word[1..-2])
+    #     end
+    #   end
 end
 
 # Time complexity: ?
