@@ -14,9 +14,16 @@ end
 # Space complexity: ?
 def reverse(s)
     #base
-    return s if s.length == 1
+    return s if s.length == 1 || s.length == 0
     #recursion
-
+    first = 0
+    last = s.length-1
+    until first == last.abs()
+        s[first],s[last] = s[last],s[first]
+        first += 1
+        last -= 1
+    end
+    return s
 end
 
 def reverse_helper(s, first, last)
