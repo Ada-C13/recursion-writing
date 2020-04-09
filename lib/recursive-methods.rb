@@ -3,15 +3,22 @@
 # Time complexity: ?
 # Space complexity: ?
 def factorial(n)
-    raise NotImplementedError, "Method not implemented"
+  # raise NotImplementedError, "Method not implemented"
+  return 1 if n == 0
+  raise ArgumentError if n < 0
+  return n * factorial(n - 1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def reverse(s)
-    raise NotImplementedError, "Method not implemented"
+    # raise NotImplementedError, "Method not implemented"
+  return s if s.length <= 1
+  return s[s.length - 1] + reverse(s[0, s.length - 1])
+
 end
 
+puts reverse("tac")
 # Time complexity: ?
 # Space complexity: ?
 def reverse_inplace(s)
@@ -47,3 +54,4 @@ end
 def digit_match(n, m)
     raise NotImplementedError, "Method not implemented"
 end
+
