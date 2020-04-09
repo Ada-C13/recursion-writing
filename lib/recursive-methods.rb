@@ -61,7 +61,18 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def search(array, value)
-    raise NotImplementedError, "Method not implemented"
+    return false if array.length == 0
+
+    return search_helper(array, value)
+end
+
+def search_helper(array, to_find, current_index = 0)
+    # Base Cases
+    return false if current_index == array.length
+    return true if array[current_index] == to_find
+  
+    # Recursive Case
+    return search_helper(array, to_find, current_index + 1)
 end
 
 # Time complexity: ?
