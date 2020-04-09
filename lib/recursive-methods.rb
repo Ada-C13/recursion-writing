@@ -52,7 +52,8 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def nested(s)
-    raise NotImplementedError, "Method not implemented"
+    return true if s.length == 0
+    return false if s.length.odd?
 end
 
 # Time complexity: ?
