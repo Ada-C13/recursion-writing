@@ -1,7 +1,7 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def factorial(n)
     #base
     return 1 if n == 0
@@ -10,8 +10,8 @@ def factorial(n)
     return n * factorial(n-1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n^2)
+# Space complexity: O(n)
 def reverse(s)
     #base
     return s if s.length == 1 || s.length == 0
@@ -34,14 +34,14 @@ def reverse_helper(s, first, last)
     return s
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n^2)
+# Space complexity: O(n)
 def reverse_inplace(s)
     return reverse_helper(s, 0, s.length-1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def bunny(n)
     #base
     return 0 if n == 0
