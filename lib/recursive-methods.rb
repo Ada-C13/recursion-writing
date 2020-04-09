@@ -13,13 +13,24 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def reverse(s)
-    raise NotImplementedError, "Method not implemented"
+    #base
+    return s if s.length == 1
+    #recursion
+
+end
+
+def reverse_helper(s, first, last)
+    if first < last
+        s[first],s[last] = s[last],s[first]
+        return reverse_helper(s, first+1, last-1)
+    end
+    return s
 end
 
 # Time complexity: ?
 # Space complexity: ?
 def reverse_inplace(s)
-    raise NotImplementedError, "Method not implemented"
+    return reverse_helper(s, 0, s.length-1)
 end
 
 # Time complexity: ?
