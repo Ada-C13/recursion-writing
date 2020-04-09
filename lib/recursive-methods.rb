@@ -43,7 +43,10 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+    #base
+    return 0 if n == 0
+    #recursion
+    return 2 + bunny(n-1)
 end
 
 # Time complexity: ?
