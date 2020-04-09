@@ -25,13 +25,21 @@ def reverse(s)
 end
 
 
+def recursive_swap(s, low, high)
+    # base case is: return s when high and low cross
+    # recursive case: return recursive_swap(s, low + 1, high - 1)
+    if high <= low
+        return s
+    else
+        s[low], s[high] = s[high], s[low]
+        return recursive_swap(s, low + 1, high - 1)
+    end
+end
+
 # Time complexity: O(n)
 # Space complexity: O(n)
 def reverse_inplace(s)
-    # base case is: return empty string for length == 0
-    # recursive case: return reverse(s[0..-2])
-    return "" if s.length == 0 
-    return s[-1] + reverse(s[0..-2])
+    return recursive_swap(s, 0, s.length - 1)
 end
 
 # Time complexity: O(n)
@@ -111,8 +119,26 @@ end
 # if a[-1] == nil || b[-1] == nil
 #     return 0
 # elsif a[-1] != b[-1]
-#     puts "Here's a[0..-2]: #{a[0..-2]}"
+    # puts "Here's a[0..-2]: #{a[0..-2]}"
 #     return digit_match(a[0..-2], b[0..-2])
 # else
 #     return 1 + digit_match(a[0..-2], b[0..-2])
 # end
+
+
+# ADDED FUN
+# - fib sequence: (0 1 1 2 3 5 8 13 21 34)
+
+def fib(n)
+    # base case: return 0 if n == 0 OR if n == 1 return 1
+    # recursive case: return fib(n-2) + fib(n-1)
+    if n < 0
+        raise ArgumentError    
+    elsif n == 0
+        return 0
+    elsif n == 1
+        return 1
+    else
+        return fib(n-2) + fib(n-1)
+    end
+end
