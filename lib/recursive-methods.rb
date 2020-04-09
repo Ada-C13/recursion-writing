@@ -49,11 +49,13 @@ def bunny(n)
     return 2 + bunny(n-1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def nested(s)
     return true if s.length == 0
     return false if s.length.odd?
+
+    s.count("(") == s.count(")")
 end
 
 # Time complexity: ?
