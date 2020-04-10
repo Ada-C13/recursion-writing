@@ -1,7 +1,7 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: o(1)
+# Space complexity: o(n)
 def factorial(n)
     if n < 0 
       raise ArgumentError 
@@ -12,8 +12,8 @@ def factorial(n)
     return n * factorial(n-1);
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: o(n)
+# Space complexity: o(n) where n is the length of the string
 def reverse(s, current = s.length-1, reversed_string="")
   if current >= 0
     reversed_string += s[current] 
@@ -22,18 +22,18 @@ def reverse(s, current = s.length-1, reversed_string="")
   else
     return reversed_string
   end 
-   
-  
 end
 
 # Time complexity: ?
 # Space complexity: ?
 def reverse_inplace(s)
-    raise NotImplementedError, "Method not implemented"
+  
+
+    
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: o(n)
+# Space complexity: o(n)
 def bunny(n)
   if n == 0
     return 0
@@ -42,8 +42,8 @@ def bunny(n)
   end   
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: o
+# Space complexity: o(n/2) or o(n) 
 def nested(s)
   if s.length%2 != 0 
     return false
@@ -64,8 +64,8 @@ def nested(s)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: o(n)
+# Space complexity: o(n) where n is the length of the array
 def search(array, value, start=0)
   if start < array.length  
     if value == array[start] 
@@ -77,8 +77,8 @@ def search(array, value, start=0)
   return false
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: o(n)
+# Space complexity: o(n/2) or o(n) where n is the amount of chars
 def is_palindrome(s)
     if s.length <= 1
         return true
@@ -96,8 +96,8 @@ def is_palindrome(s)
     end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: o(log(n)) 
+# Space complexity: o(n+m) where n and m are the amount of digits 
 def digit_match(n, m, count=0)
 
   if n == 0 && m == 0 
@@ -115,4 +115,3 @@ def digit_match(n, m, count=0)
   return digit_match(n/10, m/10, count)
 end
 
-puts reverse("cat")
