@@ -121,9 +121,13 @@ def search(arr, n, index = 0)
 # Time complexity : 
 # Space complexity: 
 
-def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
-end
+def is_palindrome(str, left = 0, right = str.length - 1)
+    return true  if left >= right
+    return false if str[left] != str[right]
+    return is_palindrome(str, left + 1, right - 1)
+  end
+ 
+  
 
 # Time complexity: ?
 # Space complexity: ?
