@@ -14,13 +14,20 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def reverse(s)
-    raise NotImplementedError, "Method not implemented"
+    # Input validation
+    return nil if s == nil
+    return '' if s.length == 0
+    # Base case
+    return s if s.length == 1
+    # Recursive case
+    return reverse(s[1..s.length-1]) + s[0]
 end
 
 # Time complexity: ?
 # Space complexity: ?
 def reverse_inplace(s)
-    raise NotImplementedError, "Method not implemented"
+    # Base case
+
 end
 
 # Time complexity: ?
