@@ -42,7 +42,7 @@ end
 # reverses the string in place using a recursive algorithm
 # e.g. reverse("hello world") converts to "dlrow olleh"
 # Linear Recursion
-# Time Complexity : O(logn) n/2, removes one from each side -2 
+# Time Complexity : O(logn) n/2 removes one from each side 
 # Space Complexity: O(n)
 
 def reverse_helper(s, first, last)
@@ -68,25 +68,23 @@ end
 # a number of bunnies and each has two big floppy ears. Compute
 # the total of ears recursively w/o loops or multiplication.
 # e.g. bunny(0)  = 0, bunny(1)  = 2, bunny(10) = 20
-# Tail Recursion
-# Time Complexity : O(1), constant time of 2 
+# Time Complexity : O(1), constant time of 2 number of ears
 # Space Complexity: O(n)
 
 def bunny(n, m = 2)
     return n if m == 1
     return n + bunny(n, m-1)
-  end
+end
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # Write # 5 Nested
 # A method nested that accepts a string of only parenthesis
 # and then returns if those parenthesis are properly nested.
-# No non-parenthesis characters will be passed to this method.
+# Only parenthesis characters will be passed to this method.
 # e.g. nested("((()))") = true, nested("())") = false
 # Do this without creating new strings in the process.
-# Tail Recursion
-# Time Complexity : O(logn) n/2, removes one from each side -2 
+# Time Complexity : O(logn) n/2 removes one from each side 
 # Space Complexity: O(n)
 
 def nested(s, left = 0, right = s.length - 1)
@@ -94,7 +92,7 @@ def nested(s, left = 0, right = s.length - 1)
     return true  if left > right
     return false if s[left] != "(" || s[right] != ")"
     return nested(s, left + 1, right - 1)
-  end
+end
 
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
@@ -102,18 +100,18 @@ def nested(s, left = 0, right = s.length - 1)
 # accepts an unsorted array of integers and an integer to find
 # returns true if the value if found and false otherwise
 # Linear Recursion
-# Time Complexity  O(n)
-# Space Complexity O(n)
+# Time Complexity : O(n)
+# Space Complexity: O(n)
 
 def search(arr, n, index = 0)
     return false if arr.size == 0
     return false if index == arr.length
     return true  if arr[index] == n 
     return search(arr, n, index + 1)
-  end
+end
 
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # Write # 7 - is_palindrome(s)
 # accepts a string as a parameter and returns a boolean if a palindrome or not.
 # is_palindrome("racecar") = true, is_palindrome("smile") = false
@@ -125,12 +123,27 @@ def is_palindrome(str, left = 0, right = str.length - 1)
     return true  if left >= right
     return false if str[left] != str[right]
     return is_palindrome(str, left + 1, right - 1)
-  end
- 
-  
-
-# Time complexity: ?
-# Space complexity: ?
-def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
 end
+ 
+
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# Write # 8 Digit_match(n, m) 
+# Recursive method accepts two positive integers as parameters
+# and returns the number of digits that match in both integers.
+# Two digits match if they are equal and have the same position
+# relative to the end, starting with the ones digit.
+# 1 0 7 2 5 0 3 8 9 1
+#     | | | | | | | |
+#     6 2 5 3 0 8 4 1
+# returns 4 because 4 of these pairs match, 2-2, 5-5, 8-8, and 1-1.
+# Time complexity : O(log10n)
+# Space complexity: O(n)
+
+def digit_match(int1, int2, count = 0)
+    return 1     if int1 == 0 && int2 == 0
+    return count if int1 == 0 || int2 == 0
+    count += 1   if int1 % 10 == int2 % 10
+    return digit_match(int1/10, int2/10, count)
+end
+
+
