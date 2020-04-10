@@ -58,8 +58,8 @@ def nested(s)
     s.count("(") == s.count(")")
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n^2)
 def search(array, value)
     return false if array.length == 0
 
@@ -75,10 +75,16 @@ def search_helper(array, to_find, current_index = 0)
     return search_helper(array, to_find, current_index + 1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
-def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
+# Time complexity: O(n)
+# Space complexity: O(n^2)
+def is_palindrome(word)
+    if word.length < 2
+        return true
+    elsif word[0] != word[-1]
+        return false
+    else
+        return is_palindrome(word[1..-2])
+    end
 end
 
 # Time complexity: ?
