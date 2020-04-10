@@ -36,7 +36,7 @@ def reverse(str, left = 0, right = str.length-1)
 end
 
 
-# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # Write # 3 - Reverse inplace(s)
 # reverse_inplace(s) accepts a string as a parameter and
 # reverses the string in place using a recursive algorithm
@@ -65,7 +65,7 @@ end
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
 # Write # 4 - Constant - Bunny(n)
 # A method that accepts an integer parameter n that represents
-# a number of bunnies and each has two big floppy ears. Compute
+# a number of bunnies and each has two floppy ears. Compute
 # the total of ears recursively w/o loops or multiplication.
 # e.g. bunny(0)  = 0, bunny(1)  = 2, bunny(10) = 20
 # Time Complexity : O(1), constant time of 2 number of ears
@@ -113,9 +113,9 @@ end
 
 # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # 
 # Write # 7 - is_palindrome(s)
-# accepts a string as a parameter and returns a boolean if a palindrome or not.
+# accepts a string and returns a boolean if a palindrome or not.
 # is_palindrome("racecar") = true, is_palindrome("smile") = false
-# Try doing this without creating new strings while solving the problem.
+# Do this without creating new strings while solving the problem.
 # Time complexity : 
 # Space complexity: 
 
@@ -135,15 +135,61 @@ end
 # 1 0 7 2 5 0 3 8 9 1
 #     | | | | | | | |
 #     6 2 5 3 0 8 4 1
-# returns 4 because 4 of these pairs match, 2-2, 5-5, 8-8, and 1-1.
+# returns 4 because 4 pairs match, 2-2, 5-5, 8-8, and 1-1.
 # Time complexity : O(log10n)
 # Space complexity: O(n)
 
-def digit_match(int1, int2, count = 0)
-    return 1     if int1 == 0 && int2 == 0
+def digit_match(int1, int2, count = 0, digit = 0)
+    return 1     if int1 == 0 && int2 == 0 && digit == 0
     return count if int1 == 0 || int2 == 0
     count += 1   if int1 % 10 == int2 % 10
-    return digit_match(int1/10, int2/10, count)
+    return digit_match(int1/10, int2/10, count, digit+1)
 end
 
 
+# # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # # #
+# Write # 9 - Fibonacci number
+# A recursive method accepts an integer index n as a parameter
+# and returns the nth fibonacci number
+# e.g. fib(4) = (0 1 1 2 3) should return 3
+# Functions with two recursive calls are binary recursive functions
+# Binary Recursions return two calls of themselves
+# Time Complexity  : O(1.618ˆn) the tight upper bound of fibonacci
+# Space Complexity : O(n)
+# an = [Phin – (phi)n] / Sqrt[5], 1.6180 called the golden ratio 
+# Phi = (1 + Sqrt[5]) / 2 the so-called golden mean
+# phi = (1 – Sqrt[5]) / 2 an associated golden number
+
+def fibonacci(n)
+    n <= 1 ? n :  fibonacci( n - 1 ) + fibonacci( n - 2 ) 
+end
+
+# p fibonacci(-1)
+# p fibonacci(0)
+# p fibonacci(2)
+# p fibonacci(4)
+# p fibonacci(10)  # 0, 1, 1, 2, 3, 5, 8, 13, 21, 55
+# p fibonacci(100) # must use memoization because it takes a long time!
+
+
+# Closure
+module Fib
+  def self.compute(index)
+    f = fibonacci
+    index.times { f.call }
+    f.call
+  end
+
+  def self.fibonacci
+    first, second = 1, 0
+    Proc.new {
+      first, second = second, first + second
+      first
+    }
+  end
+end
+
+puts Fib.compute(10)
+puts Fib.compute(50)
+puts Fib.compute(128)
+puts Fib.compute(256)
