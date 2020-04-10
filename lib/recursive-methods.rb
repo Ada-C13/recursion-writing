@@ -3,7 +3,12 @@
 # Time complexity: ?
 # Space complexity: ?
 def factorial(n)
-    raise NotImplementedError, "Method not implemented"
+    # Input validation
+    raise ArgumentError if n < 0 
+    # Base case
+    return 1 if n == 0 
+    # Recursive case
+    return n * factorial(n-1)
 end
 
 # Time complexity: ?
