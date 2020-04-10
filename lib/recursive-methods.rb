@@ -1,9 +1,14 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) => n is the number of numbers
+# Space complexity: O(n) => b/c each recusive will add a stack frame on the call stack
 def factorial(n)
-    raise NotImplementedError, "Method not implemented"
+    # base case
+    raise ArgumentError.new('It must be a positive number.') if n < 0
+    return 1 if n == 0
+
+    # recursive case
+    return n * factorial(n-1)
 end
 
 # Time complexity: ?
