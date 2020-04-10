@@ -3,7 +3,7 @@ require 'minitest/reporters'
 require "minitest/skip_dsl"
 require_relative '../lib/recursive-methods'
 
-xdescribe "factorial" do
+describe "factorial" do
   it "will find the factorial of 0" do
     # Arrange
     num = 0
