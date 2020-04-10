@@ -156,7 +156,7 @@ end
 # Binary Recursions return two calls of themselves
 # Time Complexity  : O(1.618ˆn) the tight upper bound of fibonacci
 # Space Complexity : O(n)
-# an = [Phin – (phi)n] / Sqrt[5], 1.6180 called the golden ratio 
+# [Phin – (phi)n] / Sqrt[5]
 # Phi = (1 + Sqrt[5]) / 2 the so-called golden mean
 # phi = (1 – Sqrt[5]) / 2 an associated golden number
 
@@ -164,15 +164,11 @@ def fibonacci(n)
     n <= 1 ? n :  fibonacci( n - 1 ) + fibonacci( n - 2 ) 
 end
 
-# p fibonacci(-1)
-# p fibonacci(0)
-# p fibonacci(2)
-# p fibonacci(4)
-# p fibonacci(10)  # 0, 1, 1, 2, 3, 5, 8, 13, 21, 55
+p fibonacci(-1)
+p fibonacci(0)
+p fibonacci(10)  # 0, 1, 1, 2, 3, 5, 8, 13, 21, 55
 # p fibonacci(100) # must use memoization because it takes a long time!
 
-
-# Closure
 module Fib
   def self.compute(index)
     f = fibonacci
@@ -191,5 +187,5 @@ end
 
 puts Fib.compute(10)
 puts Fib.compute(50)
-puts Fib.compute(128)
+puts Fib.compute(100)
 puts Fib.compute(256)
