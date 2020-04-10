@@ -85,7 +85,20 @@ end
 
 # Time complexity: ?
 # Space complexity: ?
-def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+def digit_match(n, m, count=0)
+
+  if n == 0 && m == 0 
+    return 1;
+  end
+
+  if n%10 == m%10
+    count+=1;
+  end 
+
+  if n/10 == 0 || m/10 == 0
+    return count
+  end 
+
+  return digit_match(n/10, m/10, count)
 end
 
