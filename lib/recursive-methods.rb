@@ -113,7 +113,7 @@ end
 
 # Reference about time complexity: https://medium.com/@syedtousifahmed/fibonacci-iterative-vs-recursive-5182d7783055
 
-# Time complexity: O(2^n) => becuase it calculates the Fibonacci of a number multiple times.
+# Time complexity: O(2^n) => because it calculates the Fibonacci of a number multiple times.
 # Space complexity: O(n) => because of the System Stack
 def fib(num)
   return num if num < 2
