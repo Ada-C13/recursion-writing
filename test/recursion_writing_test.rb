@@ -409,6 +409,17 @@ describe "digit_match" do
 end
 
 describe "fib" do
+  it "returns 0 for fib(0)" do
+    # Arrange
+    num = 0
+
+    # Act
+    answer = fib(num)
+
+    # Assert
+    expect(answer).must_equal 0
+  end
+
   it "returns 3 for fib(4)" do
     # Arrange
     num = 4
