@@ -92,5 +92,7 @@ def digit_match(n, m)
 end
 
 def fib(n)
-    n
+    n < 2 ? n : (fib(n - 1) + fib(n - 2))
+
+    # return fib(num - 1) + fib(num - 2)
 end

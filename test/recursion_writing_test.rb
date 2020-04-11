@@ -356,4 +356,39 @@ describe "digit_match" do
      # Assert
      expect(answer).must_equal 1
   end
+
+  describe "fib" do
+    it "returns 3 for 4" do
+      # Arrange
+      num = 4
+  
+      # Act
+      answer = fib(num)
+  
+       # Assert
+       expect(answer).must_equal 3
+    end
+  
+    it "returns 0 for 0" do
+      # Arrange
+      num = 0
+  
+      # Act
+      answer = fib(num)
+  
+       # Assert
+      expect(answer).must_equal 0
+    end
+  
+    it "returns 125 for 10" do
+      # Arrange
+      num = 10
+  
+      # Act
+      answer = fib(num)
+  
+       # Assert
+      expect(answer).must_equal 55
+    end
+  end
 end

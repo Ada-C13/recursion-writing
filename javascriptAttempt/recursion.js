@@ -77,6 +77,12 @@ const isPalindrome = (word) => {
 //   }
 // }
 
+const fib = (num) => {
+  if(num<2){return num;}
+
+  return fib(num - 1) + fib(num - 2)
+}
+
 module.exports = {
   factorial, 
   reverse,
@@ -84,5 +90,6 @@ module.exports = {
   nested,
   search,
   isPalindrome,
+  fib
   // digitMatch
   };

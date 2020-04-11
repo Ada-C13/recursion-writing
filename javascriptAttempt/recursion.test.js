@@ -5,7 +5,8 @@ const bunny = recursion.bunny;
 const nested = recursion.nested;
 const search = recursion.search;
 const palindrome = recursion.isPalindrome;
-const digitMatch = recursion.digitMatch;
+// const digitMatch = recursion.digitMatch;
+const fib = recursion.fib;
 
 test('FACTORIAL: returns 1 when 0 is given', () => {
   expect(factorial(0)).toBe(1);
@@ -106,3 +107,16 @@ test('PALINDROME: will return false for a non-palindrome', () => {
 // test('DIGITMATCH: returns 1 for 10 and 20', () => {
 //   expect(digitMatch(10,20)).toBe(1);
 // });
+
+test('FIB: will return 3 for 4', () => {
+  expect(fib(4)).toBe(3);
+});
+
+test('FIB: will return 55 for 10', () => {
+  expect(fib(10)).toBe(55);
+});
+
+
+test('FIB: will return 0 for 0', () => {
+  expect(fib(0)).toBe(0);
+});
