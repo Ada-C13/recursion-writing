@@ -11,8 +11,8 @@ def factorial(n)
   return n * factorial(n-1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) => n is the length of the string
+# Space complexity: O(n)  => b/c each recusive will add a stack frame on the call 
 def reverse(s)
   # base case
   # when the string length is less or equal to 1, it's no need reverse
