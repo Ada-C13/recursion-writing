@@ -22,7 +22,7 @@ def reverse(s)
 end
 
 # Time complexity: O(n) wher n is n/2
-# Space complexity: ?
+# Space complexity: O(n) wher n is n/2
 def reverse_inplace(s, first_index = 0, last_index = (s.length - 1))
   # raise NotImplementedError, "Method not implemented"
   if first_index < last_index
@@ -32,10 +32,12 @@ def reverse_inplace(s, first_index = 0, last_index = (s.length - 1))
   s
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n) because of the call stack
 def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+  # raise NotImplementedError, "Method not implemented"
+  return 2 + bunny(n - 1) unless n.zero?
+  return 0 if n.zero?
 end
 
 # Time complexity: ?
