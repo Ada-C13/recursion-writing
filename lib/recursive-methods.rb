@@ -41,10 +41,7 @@ end
 
 # Time complexity: O(n) => n depends on the input size
 # Space complexity: O(n) => because of the System Stack
-# e.g. bunny(0) = 0
-# e.g. bunny(1) = 2
-# e.g. bunny(10) = 20
-def bunny(n) # 10
+def bunny(n) 
   return 0 if n == 0
   return 2 + bunny(n - 1)
 end
