@@ -112,9 +112,9 @@ end
 
 
 
-# Reference about time complexity: https://medium.com/@syedtousifahmed/fibonacci-iterative-vs-recursive-5182d7783055
+# Reference about time complexity: https://stackoverflow.com/questions/7547133/why-is-the-complexity-of-computing-the-fibonacci-series-2n-and-not-n2
 
-# Time complexity: O(2^n) => because it calculates the Fibonacci of a number multiple times.
+# Time complexity: O(2^n) => because each step I call recursion twice
 # Space complexity: O(n) => because of the System Stack
 def fib(num)
   return num if num < 2
