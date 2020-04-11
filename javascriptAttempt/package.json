@@ -1,0 +1,10 @@
+{
+  "name": "js-recursion",
+  "description": "JavaScript tests for recursion",
+  "main": "recursion.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^24.8.0"}
+}
