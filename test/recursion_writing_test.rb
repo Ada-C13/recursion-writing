@@ -1,7 +1,7 @@
-require 'minitest/autorun'
-require 'minitest/reporters'
+require "minitest/autorun"
+require "minitest/reporters"
 require "minitest/skip_dsl"
-require_relative '../lib/recursive-methods'
+require_relative "../lib/recursive-methods"
 
 # Get that nice colorized output
 Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
@@ -26,8 +26,7 @@ describe "factorial" do
     answer = factorial(num)
 
     # Assert
-    expect(answer).must_equal 5*4*3*2*1
-
+    expect(answer).must_equal 5 * 4 * 3 * 2 * 1
   end
 
   it "will raise an ArgumentError if given a number not >= 0" do
@@ -96,7 +95,6 @@ describe "reverse" do
     expect(answer).must_equal "dlrow olleh"
   end
 end
-
 
 describe "reverse_in_place" do
   it "will reverse 'cat'" do
@@ -238,40 +236,40 @@ describe "search" do
   end
 
   it "will return true when looking for something in the array" do
-  # Arrange
-  item = "a"
-  array = ["b", "c", "a"]
+    # Arrange
+    item = "a"
+    array = ["b", "c", "a"]
 
-  # Act
-  answer = search(array, item)
+    # Act
+    answer = search(array, item)
 
-  # Assert
-  expect(answer).must_equal true
+    # Assert
+    expect(answer).must_equal true
   end
 
   it "will return false when looking for something not in the array" do
     # Arrange
     item = "x"
     array = ["b", "c", "a"]
-  
+
     # Act
     answer = search(array, item)
-  
+
     # Assert
     expect(answer).must_equal false
-    end
+  end
 
-    it "will return true when finding something at the front of the array" do
-      # Arrange
-      item = "b"
-      array = ["b", "c", "a"]
-    
-      # Act
-      answer = search(array, item)
-    
-      # Assert
-      expect(answer).must_equal true
-    end      
+  it "will return true when finding something at the front of the array" do
+    # Arrange
+    item = "b"
+    array = ["b", "c", "a"]
+
+    # Act
+    answer = search(array, item)
+
+    # Assert
+    expect(answer).must_equal true
+  end
 end
 
 describe "is_palindrome" do
@@ -318,8 +316,8 @@ describe "digit_match" do
     # Act
     answer = digit_match(num1, num2)
 
-     # Assert
-     expect(answer).must_equal 4
+    # Assert
+    expect(answer).must_equal 4
   end
 
   it "returns 0 for nonmatching numbers" do
@@ -330,8 +328,8 @@ describe "digit_match" do
     # Act
     answer = digit_match(num1, num2)
 
-     # Assert
-     expect(answer).must_equal 0
+    # Assert
+    expect(answer).must_equal 0
   end
 
   it "returns 3 for 841 and 62530841" do
@@ -342,10 +340,10 @@ describe "digit_match" do
     # Act
     answer = digit_match(num1, num2)
 
-     # Assert
-     expect(answer).must_equal 3
+    # Assert
+    expect(answer).must_equal 3
   end
-  
+
   it "returns 1 for (0, 0)" do
     # Arrange
     num1 = 0
@@ -354,10 +352,10 @@ describe "digit_match" do
     # Act
     answer = digit_match(num1, num2)
 
-     # Assert
-     expect(answer).must_equal 1
+    # Assert
+    expect(answer).must_equal 1
   end
-  
+
   it "returns 1 for (10, 20)" do
     # Arrange
     num1 = 10
@@ -366,8 +364,33 @@ describe "digit_match" do
     # Act
     answer = digit_match(num1, num2)
 
-     # Assert
-     expect(answer).must_equal 1
+    # Assert
+    expect(answer).must_equal 1
+  end
+
+
+  it "returns 1 for (10, 0)" do
+    # Arrange
+    num1 = 10
+    num2 = 0
+
+    # Act
+    answer = digit_match(num1, num2)
+
+    # Assert
+    expect(answer).must_equal 1
+  end
+
+  it "returns 6 for (123456, 123456)" do
+    # Arrange
+    num1 = 123456
+    num2 = 123456
+
+    # Act
+    answer = digit_match(num1, num2)
+
+    # Assert
+    expect(answer).must_equal 6
   end
 end
 
@@ -379,9 +402,9 @@ describe "fib" do
     # Act
     answer = fib(num)
 
-     # Assert
-     expect(answer).must_equal 3
-  end 
+    # Assert
+    expect(answer).must_equal 3
+  end
 
   it "returns 21 for fib(8)" do
     # Arrange
@@ -390,9 +413,9 @@ describe "fib" do
     # Act
     answer = fib(num)
 
-     # Assert
-     expect(answer).must_equal 21
-  end 
+    # Assert
+    expect(answer).must_equal 21
+  end
 
   it "returns 55 for fib(10)" do
     # Arrange
@@ -401,7 +424,7 @@ describe "fib" do
     # Act
     answer = fib(num)
 
-     # Assert
-     expect(answer).must_equal 55
-  end 
-end 
+    # Assert
+    expect(answer).must_equal 55
+  end
+end
