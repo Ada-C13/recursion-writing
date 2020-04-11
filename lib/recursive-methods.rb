@@ -42,14 +42,33 @@ end
 
 # Time complexity: ?
 # Space complexity: ?
-def nested(s)
-    raise NotImplementedError, "Method not implemented"
+def nested(s, first_index = 0, last_index = (s.length - 1))
+  # raise NotImplementedError, "Method not implemented"
+  return false if s.length.odd?
+  return true if s.empty?
+
+  if first_index < last_index
+    if s[first_index] == "(" && s[last_index] == ")"
+        return nested(s, first_index + 1, last_index - 1)
+    else 
+        return false
+    end
+  end
+  return true
 end
 
 # Time complexity: ?
 # Space complexity: ?
-def search(array, value)
-    raise NotImplementedError, "Method not implemented"
+def search(array, value, current_index = 0 )
+    # raise NotImplementedError, "Method not implemented"
+    if current_index < array.length
+        if array[current_index] == value
+            return true
+        else 
+            return search(array, value, current_index += 1) 
+        end
+    end
+    return false
 end
 
 # Time complexity: ?
