@@ -24,11 +24,21 @@ def reverse(s)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) => n is the length of the string
+# Space complexity: O(n)  => b/c each recusive will add a stack frame on the call stack
 def reverse_inplace(s)
-    raise NotImplementedError, "Method not implemented"
+    return reverse_helper(s, 0, s.length - 1)
 end
+
+def reverse_helper(s, first_i, last_i)
+    if first_i < last_i
+      temp = s[first_i]
+      s[first_i] = s[last_i]
+      s[last_i] = temp
+      return reverse_helper(s, first_i + 1, last_i - 1)
+    end
+    return s
+  end
 
 # Time complexity: ?
 # Space complexity: ?
