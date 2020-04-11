@@ -3,18 +3,25 @@
 # Time complexity: O(n) => n is the number of numbers
 # Space complexity: O(n) => b/c each recusive will add a stack frame on the call stack
 def factorial(n)
-    # base case
-    raise ArgumentError.new('It must be a positive number.') if n < 0
-    return 1 if n == 0
+  # base case
+  raise ArgumentError.new('It must be a positive number.') if n < 0
+  return 1 if n == 0
 
-    # recursive case
-    return n * factorial(n-1)
+  # recursive case
+  return n * factorial(n-1)
 end
 
 # Time complexity: ?
 # Space complexity: ?
 def reverse(s)
-    raise NotImplementedError, "Method not implemented"
+  # base case
+  # when the string length is less or equal to 1, it's no need reverse
+  if s.length <= 1
+    return s 
+  else
+    #recursive case
+    return reverse(s[1..-1]) + s[0]
+  end
 end
 
 # Time complexity: ?
