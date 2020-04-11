@@ -52,8 +52,8 @@ def bunny(n)
     return 2 + bunny(n-1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n^2)
 def nested(s)
     # input validation
     return true if s.length == 0
@@ -66,20 +66,61 @@ def nested(s)
     return nested(s[1..-2])
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def search(array, value)
-    raise NotImplementedError, "Method not implemented"
+    # input validation
+    return false if array.nil?
+    # base case
+    i = 0
+    return search_helper(array, i, value)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+def search_helper(array, i, value)
+    # base case
+    if i == array.length
+        return false
+    end
+    if array[i] == value
+        return true
+    end
+    # recursive case
+    search_helper(array, i+1, value)
+end
+
+# Time complexity: O(n)
+# Space complexity: O(n)
 def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
+    # input validation
+    return true if s.length == 0
+    i = 0
+    j = s.length-1
+    return palindrome_helper(i, j, s)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+def palindrome_helper(i, j, s)
+    # base case
+    return true if j == i
+    return false if s[j] != s[i]
+    # recursive case
+    palindrome_helper(i+1, j-1, s)
+end
+
+# Time complexity: O(lg n)
+# Space complexity: O(lg n)
 def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+    # input validation
+    return 1 if n == 0 && m == 0
+    # base case
+    match_helper(n, m, 0)
+end
+
+def match_helper(n, m, match)
+    if n == 0 || m == 0
+        return match
+    end
+    if (n%10) == (m%10)
+        match += 1
+    end
+    return match_helper(n/10, m/10, match)
 end
