@@ -1,7 +1,7 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def factorial(n)
     # Input validation
     raise ArgumentError if n < 0 
@@ -11,8 +11,8 @@ def factorial(n)
     return n * factorial(n-1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n^2)
 def reverse(s)
     # Input validation
     return nil if s == nil
@@ -23,23 +23,47 @@ def reverse(s)
     return reverse(s[1..s.length-1]) + s[0]
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def reverse_inplace(s)
-    # Base case
-
+    # Input validation
+    return nil if s == nil
+    return '' if s.length == 0    
+    i = 0
+    j = s.length-1
+    reverse_helper(s, i, j)
+    return s 
 end
 
-# Time complexity: ?
-# Space complexity: ?
+def reverse_helper(s, i, j)
+    if i > j
+        return
+    end
+    s[i], s[j] = s[j], s[i]
+    reverse_helper(s, i+1, j-1)
+end
+
+# Time complexity: O(n)
+# Space complexity: O(n)
 def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+    # base case
+    return 0 if n == 0
+    # recursive case
+    return 2 + bunny(n-1)
 end
 
 # Time complexity: ?
 # Space complexity: ?
 def nested(s)
-    raise NotImplementedError, "Method not implemented"
+    # input validation
+    return true if s.length == 0
+    # base case
+    return false if s.length == 1
+    if s[0] != '(' || s[-1] != ')'
+        return false
+    end
+    # recursive case
+    return nested(s[1..-2])
 end
 
 # Time complexity: ?
