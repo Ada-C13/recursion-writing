@@ -21,10 +21,15 @@ def reverse(s)
   return "" if s.length.zero?
 end
 
-# Time complexity: ?
+# Time complexity: O(n) wher n is n/2
 # Space complexity: ?
-def reverse_inplace(s)
-    raise NotImplementedError, "Method not implemented"
+def reverse_inplace(s, first_index = 0, last_index = (s.length - 1))
+  # raise NotImplementedError, "Method not implemented"
+  if first_index < last_index
+    s[first_index], s[last_index] = s[last_index], s[first_index]
+    reverse_inplace(s, first_index + 1, last_index - 1)
+  end
+  s
 end
 
 # Time complexity: ?
