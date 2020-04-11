@@ -74,6 +74,7 @@ end
 # Space complexity: O(n^2) => because it creates a new string (s[1..-2]) for each recursion
 def is_palindrome(s)
   return true if s.empty?
+  return true if s.length == 1
 
   return false if s[0] != s[-1]
 
