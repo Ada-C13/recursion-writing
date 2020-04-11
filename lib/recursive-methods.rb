@@ -25,9 +25,7 @@ end
 
 def reverse_helper(string, low = 0, high = string.length - 1)
   if low < high
-    temp = string[low]
-    string[low] = string[high]
-    string[high] = temp
+    string[low], string[high] = string[high], string[low]
     return reverse_helper(string, low + 1, high - 1)
   end
 
