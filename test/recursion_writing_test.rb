@@ -35,7 +35,7 @@ describe "factorial" do
 
     # Act-Assert
     expect {
-      answer = factorial(num)
+      factorial(num)
     }.must_raise ArgumentError
   end
 end
@@ -73,6 +73,7 @@ describe "reverse" do
     # Assert
     expect(answer).must_equal ""
   end
+
   it "will reverse 'apple'" do
     # Arrange
     string = "apple"
@@ -129,6 +130,7 @@ describe "reverse_in_place" do
     # Assert
     expect(answer).must_equal ""
   end
+
   it "will reverse 'apple'" do
     # Arrange
     string = "apple"
@@ -391,6 +393,18 @@ describe "digit_match" do
 
     # Assert
     expect(answer).must_equal 6
+  end
+
+  it "returns 1 for 1 and 62530841" do
+    # Arrange
+    num1 = 1
+    num2 = 62530841
+
+    # Act
+    answer = digit_match(num1, num2)
+
+    # Assert
+    expect(answer).must_equal 1
   end
 end
 
