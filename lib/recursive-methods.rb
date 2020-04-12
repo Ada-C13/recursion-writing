@@ -52,11 +52,11 @@ end
 
 def nested_helper(s, first_i, last_i)
   if first_i < last_i
-      if s[first_i] != s[last_i]
-        return nested_helper(s, first_i + 1, last_i - 1)
-      else
-        return false
-      end
+    if s[first_i] != s[last_i]
+      return nested_helper(s, first_i + 1, last_i - 1)
+    else
+      return false
+    end
   end
   return true
 end
@@ -87,11 +87,11 @@ end
 
 def palindrome_helper(s, first_i, last_i)
   if first_i < last_i
-      if s[first_i] == s[last_i]
-        return palindrome_helper(s, first_i + 1, last_i - 1)
-      else
-        return false
-      end
+    if s[first_i] == s[last_i]
+      return palindrome_helper(s, first_i + 1, last_i - 1)
+    else
+      return false
+    end
   end
   return true
 end
