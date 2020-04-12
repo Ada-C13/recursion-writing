@@ -10,17 +10,17 @@ def factorial(n)
   return n * factorial(n-1)
 end
 
-###################################################################################
+############################################################################################
 
 # Write #2
-# Time complexity: ?  O(n)
-# Space complexity: ? O(n^2)
+# Time complexity: ?  O(n) because it runs n times
+# Space complexity: ? O(n^2) beacuase a new string is created everything the function is called
 def reverse(s)
   return '' if s.length == 0
   return s[s.length - 1] + reverse(s[0...-1])
 end
 
-####################################################################################
+##############################################################################################
 
 # Write #3
 # Time complexity: ? O(n) beacause it runs n time - n is a length of string
@@ -54,23 +54,21 @@ end
 #   return s
 # end
 
-#########################################################################################
+##################################################################################################
 # Write #4
 # Time complexity: O(n) beacause it runs n time - n is a length of string
 # Space complexity: O(n) becasue functions are called n times - n is length of string
 def bunny(n)
   return 0 if n == 0 
-  return 2 if n == 1 
   return 2 + bunny(n - 1)
 end
 
-############################################################################################
+##################################################################################################
 # Write #5
 
 # Time complexity: O(n) beacuse it runs n times - n is length of string
 # Space complexity: O(n) beacuse the functions is called n time. 
 def nested(s, first = 0, last = s.length - 1)
-  return true if s == ""
   return false if s.length%2 != 0
   return false if (first < last) && (s[first] == s[last])
   if (first < last) && (s[first] != s[last])
@@ -81,8 +79,8 @@ end
 
 # Alternative way to solve Write #5
 # Write #5
-# Time complexity: ? O(n)
-# Space complexity: ? O(n^2)
+# Time complexity: O(n) because it runs n times - n is the length of string
+# Space complexity: O(n^2) because a new string is careated when the function is called 
 # def nested(s)
 #   mid = s.length/2
 #   return true if s == ""
@@ -99,7 +97,7 @@ end
 
 # Write #6
 # Time complexity: O(n) beacuse it runs n times - n is length of string
-# Space complexity: O(n) beacuse we don't create any new array each time the function is called. The functions are called n time - n is length of string
+# Space complexity: O(n) beacuse we don't create any new array each time the function is called. The functions are called n times - n is length of string
 def search(array, value, index = 0 )
   return false if array == []
   return true if array[index] == value 
@@ -109,7 +107,7 @@ def search(array, value, index = 0 )
   return false
 end
 
-##############################################################################################
+##################################################################################################
 # Write #6
 # Time complexity: O(n)
 # Space complexity: O(n^2) beause a new array is careated each time the function is called
@@ -119,7 +117,7 @@ end
 #   return search(array[1..-1], value)
 # end
 
-#####################################################################
+####################################################################################################
 # Write #7
 # Time complexity: O(n) because it runs n time - n is length of string
 # Space complexity: O(n) because no new array is crated when the function is called, and the functions are called n times - n is length of string
@@ -133,8 +131,8 @@ def is_palindrome(s, first = 0, last = s.length - 1 )
 end
 
 ####### Alternative way to solve Write #7 - Space complexity is O(n^2)
-# Time complexity: O(n)
-# Space complexity: O(n^2)
+# Time complexity: O(n) because it runs n times 
+# Space complexity: O(n^2) because new string is created each time the function is called
 # def is_palindrome(s)
 #   return true if s == "" 
 #   return false if s[0] != s[-1]
@@ -156,10 +154,10 @@ end
 #   return is_palindrome_helper(s, first + 1, last - 1)
 # end
 
-#######################################################################
+########################################################################################
 # Write # 8 
-# Time complexity: O(n)
-# Space complexity: O
+# Time complexity: O(log n base 10) 
+# Space complexity: O(log n base 10)
 def digit_match(n, m)
   match = 0
   return 0 if ((n < 10) || (m < 10)) && (n%10 != m%10)
@@ -174,7 +172,7 @@ end
 
 # Alternative way to solve write # 8 using the tail recursion
 # Write # 8 using the tail recursion
-# Time complexity: O(n)
+# Time complexity: O(log n base 10)
 # Space complexity: O
 # def digit_match(n, m, match = 0)
 #   return match if ((n < 10) || (m < 10)) && (n%10 != m%10)
@@ -188,7 +186,7 @@ end
 
 
 # Alternative way to solve this problem but the time and space complexity are worse than the above. 
-# This solution does string to get the last index NOT %
+# This solution does  NOT % to get the last digit. It converts the numbers to string to get the last digit.
 # Write # 8
 # Time complexity: O(n)
 # Space complexity: O(n^2)
