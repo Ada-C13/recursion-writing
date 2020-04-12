@@ -24,7 +24,7 @@ end
 
 # Time complexity: O(n)
 # Space complexity: O(1)
-# web help source: https://medium.com/@txea/reverse-a-string-with-recursion-a3f8505ffb73
+# source: https://medium.com/@txea/reverse-a-string-with-recursion-a3f8505ffb73
 def reverse_inplace(s)
     return s if s.length <= 1
     gnirts = reverse_inplace(s[1..-1])
@@ -39,10 +39,17 @@ def bunny(n)
     return 2 + bunny(n-1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
-def nested(s, first = 0, last = s.length-1)
-
+# Time complexity: O(n)
+# Space complexity: O(1)
+def nested(s)
+    return true if s == ""
+    if s[0] == "(" && s[-1] == ")"
+        s.slice!(0)
+        s.slice!(-1)
+        nested(s)
+    else
+        return false
+    end
 end
 
 # Time complexity: ?
