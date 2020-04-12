@@ -173,7 +173,7 @@ end
 # Alternative way to solve write # 8 using the tail recursion
 # Write # 8 using the tail recursion
 # Time complexity: O(log n base 10)
-# Space complexity: O
+# Space complexity: O(log n base 10)
 # def digit_match(n, m, match = 0)
 #   return match if ((n < 10) || (m < 10)) && (n%10 != m%10)
 #   return match + 1 if ((n < 10) || (m < 10)) && (n%10 == m%10)
