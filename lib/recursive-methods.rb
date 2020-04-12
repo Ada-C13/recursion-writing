@@ -41,6 +41,7 @@ end
 
 # Time complexity: O(n)
 # Space complexity: O(1)
+# Talk to tutor
 def nested(s)
     return true if s == ""
     if s[0] == "(" && s[-1] == ")"
@@ -52,16 +53,17 @@ def nested(s)
     end
 end
 
-# Time complexity: ?
-# Space complexity: ?
-def search(array, value)
-    raise NotImplementedError, "Method not implemented"
+# Time complexity: O(n)
+# Space complexity: O(n)
+def search(array, value, index = 0)
+    return false if array.empty? || index >= array.length
+    return true if array[index] == value
+    return search(array, value, index + 1)
 end
 
 # Time complexity: ?
 # Space complexity: ?
 def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
 end
 
 # Time complexity: ?
