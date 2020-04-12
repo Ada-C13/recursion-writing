@@ -12,7 +12,7 @@ def factorial(n)
 end
 
 # Time complexity: O(n) => n is the length of the string
-# Space complexity: O(n)  => b/c each recusive will add a stack frame on the call 
+# Space complexity: O(n^2)  =>  we end up creating a new array in every recursion
 def reverse(s)
   # base case
   # when the string length is less or equal to 1, it's no need reverse
@@ -50,10 +50,26 @@ def bunny(n)
     return 2 + bunny(n - 1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)  => b/c each recusive will add a stack frame on the call stack
 def nested(s)
-    raise NotImplementedError, "Method not implemented"
+    # base case
+    return true if s.length == 0
+    return false if s.length.odd?
+
+    #recursive case
+    nested_helper(s, 0, s.length - 1)
+end
+
+def nested_helper(s, first_i, last_i)
+    if first_i < last_i
+        if s[first_i] != s[last_i]
+          return nested_helper(s, first_i + 1, last_i - 1)
+        else
+          return false
+        end
+    end
+    return true
 end
 
 # Time complexity: ?
