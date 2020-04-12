@@ -3,23 +3,18 @@
 # Time complexity: O(n) => n is the number of numbers
 # Space complexity: O(n) => b/c each recusive will add a stack frame on the call stack
 def factorial(n)
-  # base case
   raise ArgumentError.new('It must be a positive number.') if n < 0
   return 1 if n == 0
-
-  # recursive case
   return n * factorial(n-1)
 end
 
 # Time complexity: O(n) => n is the length of the string
 # Space complexity: O(n^2)  =>  we end up creating a new array in every recursion
 def reverse(s)
-  # base case
-  # when the string length is less or equal to 1, it's no need reverse
+  # when the string length is less or equal to 1, it's no need to reverse
   if s.length <= 1
     return s 
   else
-    #recursive case
     return reverse(s[1..-1]) + s[0]
   end
 end
@@ -43,21 +38,15 @@ end
 # Time complexity: O(n)
 # Space complexity: O(n)
 def bunny(n)
-  # base case
   return 0 if n == 0
-
-  # recursive case
   return 2 + bunny(n - 1)
 end
 
 # Time complexity: O(n)
 # Space complexity: O(n)  => b/c each recusive will add a stack frame on the call stack
 def nested(s)
-  # base case
   return true if s.length == 0
   return false if s.length.odd?
-
-  #recursive case
   nested_helper(s, 0, s.length - 1)
 end
 
@@ -92,9 +81,7 @@ end
 # Time complexity:  O(n) => n is the length of the string
 # Space complexity: O(n)  => b/c each recusive will add a stack frame on the call stack
 def is_palindrome(s)
-  # base case
   return true if s.length == 0
-
   return palindrome_helper(s, 0, s.length - 1)
 end
 
@@ -116,13 +103,10 @@ def digit_match(n, m)
 end
 
 def digit_match_helper(n, m, counts = 0)
-  # base case
   if n < 10 || m < 10
     counts += 1 if n % 10 == m % 10
     return counts
-  end
-
-  if n % 10 == m % 10
+  elsif n % 10 == m % 10
     return digit_match_helper(n / 10, m/  10, counts += 1)
   else
     return digit_match_helper(n / 10, m / 10, counts)
