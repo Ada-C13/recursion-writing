@@ -92,7 +92,21 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def is_palindrome(s)
-  
+  # base case
+  return true if s.length == 0
+
+  return palindrome_helper(s, 0, s.length - 1)
+end
+
+def palindrome_helper(s, first_i, last_i)
+  if first_i < last_i
+      if s[first_i] == s[last_i]
+        return palindrome_helper(s, first_i + 1, last_i - 1)
+      else
+        return false
+      end
+  end
+  return true
 end
 
 # Time complexity: ?
