@@ -129,7 +129,7 @@ xdescribe "reverse_in_place" do
   end
 end
 
-xdescribe "bunny" do
+describe "bunny" do
   it "returns 0 for 0 bunnies" do
     # Arrange
     count = 0
