@@ -61,10 +61,20 @@ def search(array, value, index = 0)
     return search(array, value, index + 1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
-def is_palindrome(s)
+# Time complexity: O(n)
+# Space complexity: O(n)
+# source: https://github.com/Ada-C13/recursion-tracing
+# https://stackoverflow.com/questions/57966597/how-to-check-if-a-word-is-a-palindrome-without-using-string-reverse-method-in
+
+def is_palindrome(s, i = 0, j = s.length - 1 )
+    return true if i >= j
+    s[i] == s[j] && is_palindrome(s, i + 1, j - 1)
 end
+    # Wanted somethign like this review w/tutor
+    # return true if s == ""
+    # s[0] == s[-1] ? s = s[1..-2] : false
+    # s.length > 1 ? is_palindrome(s) : true
+
 
 # Time complexity: ?
 # Space complexity: ?
