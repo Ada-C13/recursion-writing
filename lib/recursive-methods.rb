@@ -27,49 +27,49 @@ end
 # Time complexity: O(n) => n is the length of the string
 # Space complexity: O(n)  => b/c each recusive will add a stack frame on the call stack
 def reverse_inplace(s)
-    return reverse_helper(s, 0, s.length - 1)
+  return reverse_helper(s, 0, s.length - 1)
 end
 
 def reverse_helper(s, first_i, last_i)
-    if first_i < last_i
-      temp = s[first_i]
-      s[first_i] = s[last_i]
-      s[last_i] = temp
-      return reverse_helper(s, first_i + 1, last_i - 1)
-    end
-    return s
+  if first_i < last_i
+    temp = s[first_i]
+    s[first_i] = s[last_i]
+    s[last_i] = temp
+    return reverse_helper(s, first_i + 1, last_i - 1)
   end
+  return s
+end
 
 # Time complexity: O(n)
 # Space complexity: O(n)
 def bunny(n)
-    # base case
-    return 0 if n == 0
+  # base case
+  return 0 if n == 0
 
-    # recursive case
-    return 2 + bunny(n - 1)
+  # recursive case
+  return 2 + bunny(n - 1)
 end
 
 # Time complexity: O(n)
 # Space complexity: O(n)  => b/c each recusive will add a stack frame on the call stack
 def nested(s)
-    # base case
-    return true if s.length == 0
-    return false if s.length.odd?
+  # base case
+  return true if s.length == 0
+  return false if s.length.odd?
 
-    #recursive case
-    nested_helper(s, 0, s.length - 1)
+  #recursive case
+  nested_helper(s, 0, s.length - 1)
 end
 
 def nested_helper(s, first_i, last_i)
-    if first_i < last_i
-        if s[first_i] != s[last_i]
-          return nested_helper(s, first_i + 1, last_i - 1)
-        else
-          return false
-        end
-    end
-    return true
+  if first_i < last_i
+      if s[first_i] != s[last_i]
+        return nested_helper(s, first_i + 1, last_i - 1)
+      else
+        return false
+      end
+  end
+  return true
 end
 
 # Time complexity: ?
@@ -92,11 +92,11 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
+  
 end
 
 # Time complexity: ?
 # Space complexity: ?
 def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+  
 end
