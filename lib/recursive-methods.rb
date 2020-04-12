@@ -117,3 +117,14 @@ def digit_match(n, m, count=0)
   return digit_match(n/10, m/10, count)
 end
 
+
+#time: o(n)
+#space: o(n)
+
+def fib(n)
+  if n <= 1
+    return n
+  end 
+  return fib(n-1) + fib(n-2) 
+end 
+
