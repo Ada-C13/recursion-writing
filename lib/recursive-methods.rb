@@ -68,20 +68,52 @@ def nested(s)
     raise NotImplementedError, "Method not implemented"
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def search(array, value)
-    raise NotImplementedError, "Method not implemented"
+    if array[0] == value 
+        return true  
+    elsif array.length <= 1
+        return false 
+    else   
+        return search(array[1..-1],value)
+    end 
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def is_palindrome(s)
+    if s.length <=1 
+        return true 
+    end 
+    if s[0] == s[-1]
+        return is_palindrome(s[1..-2])
+    else  
+        return false 
+    end 
     raise NotImplementedError, "Method not implemented"
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+    if (n.to_s.length == 0 || m.to_s.length == 0)
+        return 0 
+    end 
+    if n.to_s[-1] == m.to_s[-1]
+        return 1 + digit_match(n.to_s[0..-2], m.to_s[0..-2])
+    else  
+        return 0 + digit_match(n.to_s[0..-2], m.to_s[0..-2])
+    end 
 end
+
+# For Fun 
+def fib(n)
+    if n <= 0
+        return 0
+    elsif n == 1
+        return 1
+    else  
+        return fib(n-2) + fib(n-1)
+    end  
+end 

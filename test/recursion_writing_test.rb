@@ -210,7 +210,7 @@ describe "nested" do
   end
 end
 
-xdescribe "search" do
+describe "search" do
   it "will return false for empty array" do
     # Arrange
     item = "a"
@@ -260,7 +260,7 @@ xdescribe "search" do
     end      
 end
 
-xdescribe "is_palindrome" do
+describe "is_palindrome" do
   it "will return true for emptystring" do
     # Arrange
     string = ""
@@ -295,7 +295,7 @@ xdescribe "is_palindrome" do
   end
 end
 
-xdescribe "digit_match" do
+describe "digit_match" do
   it "returns 4 for 1072503891 and 62530841" do
     # Arrange
     num1 = 1072503891
@@ -356,3 +356,23 @@ xdescribe "digit_match" do
      expect(answer).must_equal 1
   end
 end
+
+describe "fib" do 
+  it "returns 3 for fib(4)" do 
+    input = 4
+    answer = fib(input)
+    expect(answer).must_equal 3
+  end 
+
+  it "returns 6765 for fib(20)" do 
+    input = 20
+    answer = fib(20)
+    expect(answer).must_equal 6765
+  end 
+
+  it "returns 0 for fib(0)" do 
+    input = 0
+    answer = fib(0)
+    expect(answer).must_equal 0 
+  end 
+end 
