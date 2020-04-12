@@ -72,7 +72,7 @@ def nested_helper(s, first_i, last_i)
   return true
 end
 
-# Time complexity: ?
+# Time complexity:  O(n) => n is the length of the string
 # Space complexity: O(n)  => b/c each recusive will add a stack frame on the call stack
 def search(array, value)
   return search_helper(array, value)
@@ -89,8 +89,8 @@ def search_helper(array, value, index = 0)
   return false
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity:  O(n) => n is the length of the string
+# Space complexity: O(n)  => b/c each recusive will add a stack frame on the call stack
 def is_palindrome(s)
   # base case
   return true if s.length == 0
@@ -109,8 +109,23 @@ def palindrome_helper(s, first_i, last_i)
   return true
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log 10 n)
+# Space complexity: ? O(log 10 n)
 def digit_match(n, m)
-  
+  digit_match_helper(n, m)
+end
+
+def digit_match_helper(n, m, counts = 0)
+  # base case
+  if n < 10 || m < 10
+    counts += 1 if n % 10 == m % 10
+    return counts
+  end
+
+  if n % 10 == m % 10
+    return digit_match_helper(n / 10, m/  10, counts += 1)
+  else
+    return digit_match_helper(n / 10, m / 10, counts)
+  end
+  return counts
 end
