@@ -3,6 +3,8 @@ require 'minitest/reporters'
 require "minitest/skip_dsl"
 require_relative '../lib/recursive-methods'
 
+Minitest::Reporters.use! Minitest::Reporters::SpecReporter.new
+
 describe "factorial" do
   it "will find the factorial of 0" do
     # Arrange
@@ -38,7 +40,7 @@ describe "factorial" do
   end
 end
 
-xdescribe "reverse" do
+describe "reverse" do
   it "will reverse 'cat'" do
     # Arrange
     string = "cat"
@@ -83,8 +85,7 @@ xdescribe "reverse" do
   end
 end
 
-
-xdescribe "reverse_in_place" do
+describe "reverse_in_place" do
   it "will reverse 'cat'" do
     # Arrange
     string = "cat"
@@ -129,7 +130,7 @@ xdescribe "reverse_in_place" do
   end
 end
 
-xdescribe "bunny" do
+describe "bunny" do
   it "returns 0 for 0 bunnies" do
     # Arrange
     count = 0
@@ -164,7 +165,7 @@ xdescribe "bunny" do
   end
 end
 
-xdescribe "nested" do
+describe "nested" do
   it "will return true for empystring" do
     # Arrange
     string = ""
@@ -208,9 +209,21 @@ xdescribe "nested" do
     # Assert
     expect(answer).must_equal false
   end
+  
+  ## Add a test
+  it "will return false for an even length improperly nested series of parens" do
+    # Arrange 
+    string = ")(()))"
+
+    # Act
+    answer = nested(string)
+
+    # Assert
+    expect(answer).must_equal false
+  end
 end
 
-xdescribe "search" do
+describe "search" do
   it "will return false for empty array" do
     # Arrange
     item = "a"
@@ -260,7 +273,7 @@ xdescribe "search" do
     end      
 end
 
-xdescribe "is_palindrome" do
+describe "is_palindrome" do
   it "will return true for emptystring" do
     # Arrange
     string = ""
@@ -295,7 +308,7 @@ xdescribe "is_palindrome" do
   end
 end
 
-xdescribe "digit_match" do
+describe "digit_match" do
   it "returns 4 for 1072503891 and 62530841" do
     # Arrange
     num1 = 1072503891
@@ -354,5 +367,48 @@ xdescribe "digit_match" do
 
      # Assert
      expect(answer).must_equal 1
+  end
+end
+
+### Added test for 
+describe "fibonacci number that accepts an integer index n as a parameter and returns the nth fibonacci number." do
+  it "returns 3 for fib(4)" do
+    # Arrange
+    n = 4
+
+    # Act
+    answer = fib(4)
+
+     # Assert
+     expect(answer).must_equal 3
+  end
+
+  it "returns 0 for when n is 0" do
+    # Arrange
+    n = 0
+
+    # Act
+    answer = fib(0)
+
+     # Assert
+     expect(answer).must_equal 0
+  end
+
+  it "raise ArgumentError when n < 0" do
+    # Arrange
+    n = -5
+     # Assert
+     expect{fib(-5)}.must_raise ArgumentError
+  end
+  
+  it "returns 55 when n = 10" do
+    # Arrange
+    n = 10
+
+    # Act
+    answer = fib(10)
+
+     # Assert
+     expect(answer).must_equal 55
   end
 end
