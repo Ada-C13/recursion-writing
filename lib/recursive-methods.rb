@@ -73,9 +73,20 @@ def nested_helper(s, first_i, last_i)
 end
 
 # Time complexity: ?
-# Space complexity: ?
+# Space complexity: O(n)  => b/c each recusive will add a stack frame on the call stack
 def search(array, value)
-    raise NotImplementedError, "Method not implemented"
+  return search_helper(array, value)
+end
+
+def search_helper(array, value, index = 0)
+  if index < array.length
+    if array[index] != value
+      return search_helper(array, value, index + 1)
+    else
+      return true
+    end
+  end
+  return false
 end
 
 # Time complexity: ?
