@@ -107,7 +107,7 @@ def search(array, value, index = 0 )
   return false
 end
 
-##################################################################################################
+### Alternative way to solve Write #6
 # Write #6
 # Time complexity: O(n)
 # Space complexity: O(n^2) beause a new array is careated each time the function is called
