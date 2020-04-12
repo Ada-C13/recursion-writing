@@ -25,11 +25,14 @@ def reverse(s, current = s.length-1, reversed_string="")
 end
 
 # Time complexity: ?
-# Space complexity: ?
-def reverse_inplace(s)
-  
-
-    
+# Space complexity: o(1)
+def reverse_inplace(s, start=0)
+  if start <= ((s.length-1)/2)  
+    s[start], s[s.length - 1 - start] = s[s.length - 1 - start], s[start]
+    start+=1
+    reverse_inplace(s, start)
+  end 
+  return s
 end
 
 # Time complexity: o(n)
@@ -115,3 +118,4 @@ def digit_match(n, m, count=0)
   return digit_match(n/10, m/10, count)
 end
 
+#puts reverse_inplace("apple")
