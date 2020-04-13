@@ -47,6 +47,18 @@ def reverse_inplace(s)
 		s.length < 2 ? s : s[-1] + reverse_inplace(s[1..-2]) + s[0]
 end
 
+# Time complexity: o(1) This perfoms one operation. The input is one number. 
+# Space complexity: 0(1)
+# I don't understand this being recursive?? It has a base case but it's not calling itself and getting smaller each time. 
+# This is confusing for a recursive method. I could not find examples of how to do this recursively. 
+# My steps from above: 	# 3. Write recursive call (one step simpler each time (n-1)
+def bunny(n)
+	return 0 if n < 1
+		if n >= 1
+			return n + n
+		end
+end
+
 # Time complexity: ?
 # Space complexity: ?
 def nested(s)
