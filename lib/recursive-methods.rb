@@ -103,17 +103,42 @@ def nested_help(s, first, last)
     return s
 end
 
+# Search
+
+# Write a method `search` that accepts an unsorted array of integers and an integer value to find and then returns true if the value if found in the unsorted array and false otherwise. Make the algorithm recursive.
+# - e.g. search([34, 45, 21, 4, 67], 4) should return true
+# - e.g. search([24, 51, 11], 4) should return false
+# - e.g. search([], 4) should return false
+
 # Time complexity: ?
 # Space complexity: ?
 def search(array, value)
     raise NotImplementedError, "Method not implemented"
 end
 
+# Palindrome
+
+# Write a recursive method `pal` that accepts a string s as a parameter and returns a boolean value indicating if that string is a [palindrome](https://en.wikipedia.org/wiki/Palindrome) or not.
+# - e.g. is_palindrome("racecar") = true
+# - e.g. is_palindrome("smile") = false
+# **Challenge**: Try doing this without creating new strings in the process of solving the problem.
+
 # Time complexity: ?
 # Space complexity: ?
 def is_palindrome(s)
     raise NotImplementedError, "Method not implemented"
 end
+
+# Digit match
+
+# Design and implement a recursive method that accepts two non-negative integers as parameters and that returns the number of digits that match in the two integers. Two digits match if they are equal and have the same position relative to the end of the number (i.e. starting with the ones digit). In other words, the method should compare the last digits of each number, the second-to-last digits of each number, the third-to-last digits of each number, and so forth, counting how many pairs match.
+# For example, for  input values of (1072503891, 62530841), the method would compare as follows:
+# ```
+# 1 0 7 2 5 0 3 8 9 1
+#     | | | | | | | |
+#     6 2 5 3 0 8 4 1
+# ```
+# The method should return 4 in this case because 4 of these pairs match (2-2, 5-5, 8-8, and 1-1).
 
 # Time complexity: ?
 # Space complexity: ?
