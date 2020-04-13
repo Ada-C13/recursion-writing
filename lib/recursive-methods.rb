@@ -38,6 +38,15 @@ def reverse(s)
 	
 end
 
+# Time complexity: O(n) - n being the length
+# Space complexity: 0(n) - No temporary variables so 0(1),  but there is the Stack so 0(n)??
+def reverse_inplace(s)
+	# https://stackoverflow.com/questions/20406003/reverse-a-string-with-ruby-with-recursion-whats-wrong-with-this
+	#  if string length is less than 2, return string										
+	# passes all but first/last characters to itself - see range, then reverses first/last character and + (joins) them
+		s.length < 2 ? s : s[-1] + reverse_inplace(s[1..-2]) + s[0]
+end
+
 # Time complexity: ?
 # Space complexity: ?
 def nested(s)
