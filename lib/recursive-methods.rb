@@ -1,7 +1,9 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-# Time complexity: ?
-# Space complexity: ?
+# Factorial
+
+# Time complexity: O(n)
+# Space complexity: O(n)
 
 
 # factorial(n) Write a method factorial that accepts an integer parameter n and that uses recursion to compute and return the value of n factorial (also known as n!).
@@ -18,12 +20,19 @@ def factorial(n)
     end
 end
 
+# Reverse
 
+# Write a method `reverse` that accepts a string as a parameter and then returns the reverse of the string by reversing all letters and all words in the string.
+# - e.g. reverse("hello world") will return "dlrow olleh"
 
 # Time complexity: ?
 # Space complexity: ?
 def reverse(s)
-    raise NotImplementedError, "Method not implemented"
+    return s if s.length <= 1
+
+    reversed_s = reverse(s[1..-1])
+    reversed_s += s[0]
+    return reversed_s
 end
 
 # Time complexity: ?
