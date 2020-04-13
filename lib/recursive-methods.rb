@@ -10,13 +10,11 @@ def factorial(n)
   n = n * factorial(n-1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) ?
+# Space complexity: O(n) ?
 def reverse(s)
-  reverse_word = ""
-  return reverse_word if s
-  last_index = s.length - 1
-  reverse_word += s[last_index - 1]
+  return s if s.length <= 1
+  return s[-1] + reverse(s[0...-1])
 end
 
 # Time complexity: ?
