@@ -1,27 +1,26 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: 0(n) b/c it's being called recursively n times before reaching the base case. (linear)
+# Space complexity: 0(n) There are no new variables but there is the Stack! 
 def factorial(n)
-    raise NotImplementedError, "Method not implemented"
-end
-
-# Time complexity: ?
-# Space complexity: ?
-def reverse(s)
-    raise NotImplementedError, "Method not implemented"
-end
-
-# Time complexity: ?
-# Space complexity: ?
-def reverse_inplace(s)
-    raise NotImplementedError, "Method not implemented"
-end
-
-# Time complexity: ?
-# Space complexity: ?
-def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+	# 3! = 3 * 2 * 1 = 6
+	# 1. If...a recursive case (method calls itself)
+	# and a base case (method ends - does not call itself)
+	# 2 Handle simplest case first - base case( no looping)
+	# 3. Write recursive call (one step simpler each time (n-1)
+	# 4. Assume the call works. 
+	# ask myself...what does it do? 
+	# ask myself...how does it help? 
+	if !(n >= 0)
+		raise ArgumentError.new("The input must be greater than or equal to 0")
+	end
+	# base case
+		if n <= 1
+			return 1
+		else
+			# recursive case
+			return n * factorial(n-1)
+    end
 end
 
 # Time complexity: ?

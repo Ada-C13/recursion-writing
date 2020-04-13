@@ -1,6 +1,7 @@
 require 'minitest/autorun'
 require 'minitest/reporters'
 require "minitest/skip_dsl"
+require 'minitest/pride'
 require_relative '../lib/recursive-methods'
 
 describe "factorial" do
@@ -38,7 +39,7 @@ describe "factorial" do
   end
 end
 
-xdescribe "reverse" do
+describe "reverse" do
   it "will reverse 'cat'" do
     # Arrange
     string = "cat"
@@ -84,7 +85,7 @@ xdescribe "reverse" do
 end
 
 
-xdescribe "reverse_in_place" do
+describe "reverse_in_place" do
   it "will reverse 'cat'" do
     # Arrange
     string = "cat"
@@ -129,7 +130,7 @@ xdescribe "reverse_in_place" do
   end
 end
 
-xdescribe "bunny" do
+describe "bunny" do
   it "returns 0 for 0 bunnies" do
     # Arrange
     count = 0
@@ -164,7 +165,7 @@ xdescribe "bunny" do
   end
 end
 
-xdescribe "nested" do
+describe "nested" do
   it "will return true for empystring" do
     # Arrange
     string = ""
@@ -355,4 +356,41 @@ xdescribe "digit_match" do
      # Assert
      expect(answer).must_equal 1
   end
+end
+
+
+
+
+
+# Time complexity: 0(n) It will always go the length of the string plus a new variable. 
+# Space complexity: ?
+def reverse(s)
+	# base case
+		return s if s.length <= 1
+		# recursive case - with range argument found here:  https://ruby-doc.org/core-2.5.0/Range.html
+		reversed_str = reverse(s[1..-1])
+		# "t", "ta", "tac"
+		# new string that contains the first reversed character
+		reversed_str << s[0]
+		reversed_str
+	
+end
+
+# Time complexity: O(n) - n being the length
+# Space complexity: 0(n) - No temporary variables so 0(1),  but there is the Stack so 0(n)??
+def reverse_inplace(s)
+	# https://stackoverflow.com/questions/20406003/reverse-a-string-with-ruby-with-recursion-whats-wrong-with-this
+	#  if string length is less than 2, return string										
+	# passes all but first/last characters to itself - see range, then reverses first/last character and + (joins) them
+		s.length < 2 ? s : s[-1] + reverse_inplace(s[1..-2]) + s[0]
+end
+
+# Time complexity: ?
+# Space complexity: ?
+# I don't understand this one being recursive. 
+def bunny(n)
+	return 0 if n < 1
+		if n >= 1
+			return n + n
+		end
 end
