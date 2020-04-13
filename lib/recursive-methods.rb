@@ -2,9 +2,23 @@
 
 # Time complexity: ?
 # Space complexity: ?
+
+
+# factorial(n) Write a method factorial that accepts an integer parameter n and that uses recursion to compute and return the value of n factorial (also known as n!).
+
+# e.g. fact(4) = 4 * 3 * 2 * 1 = 24
+
 def factorial(n)
-    raise NotImplementedError, "Method not implemented"
+    if n < 0
+        raise ArgumentError, "Please use a positive number"
+    elsif n == 0
+        return 1
+    else
+        return n * factorial(n-1)
+    end
 end
+
+
 
 # Time complexity: ?
 # Space complexity: ?
