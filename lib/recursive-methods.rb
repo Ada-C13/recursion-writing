@@ -57,10 +57,18 @@ def reverse_help(s, first = 0, last = s.length - 1)
     return s
 end
 
+# Bunny ears
+
+# Write a method `bunny` that accepts an integer parameter n. N represents a number of bunnies and each bunny has two big floppy ears. We want to compute the total number of ears across all the bunnies recursively (without loops or multiplication).
+# - e.g. bunny(0) = 0
+# - e.g. bunny(1) = 2
+# - e.g. bunny(10) = 20
+
 # Time complexity: ?
 # Space complexity: ?
 def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+    return 0 if n == 0
+    return 2 + bunny(n-1)
 end
 
 # Time complexity: ?
