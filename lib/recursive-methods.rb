@@ -92,7 +92,7 @@ def nested(s)
 end
 
 def nested_help(s, first, last)
-    if first > last
+    if first >= last
         return true
     elsif s[first] == '(' && s[last] == ')'
         return nested_help(s, first +1, last - 1)
@@ -105,15 +105,19 @@ end
 
 # Search
 
-# Write a method `search` that accepts an unsorted array of integers and an integer value to find and then returns true if the value if found in the unsorted array and false otherwise. Make the algorithm recursive.
+# Write a method `search` that accepts an unsorted array of integers and an integer value to find and then returns true if the value is found in the unsorted array and returns false otherwise. Make the algorithm recursive.
 # - e.g. search([34, 45, 21, 4, 67], 4) should return true
 # - e.g. search([24, 51, 11], 4) should return false
 # - e.g. search([], 4) should return false
 
 # Time complexity: ?
 # Space complexity: ?
-def search(array, value)
-    raise NotImplementedError, "Method not implemented"
+def search(array, value, index = 0)
+    return false if index >= array.length
+
+    return true if array[index] == value
+
+    return search(array, value, index + 1)
 end
 
 # Palindrome
@@ -126,7 +130,21 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
+    if s == ""
+        return true
+    end
+
+    return pal_help(s, 0, s.length - 1)
+end
+
+def pal_help(s, first, last)
+    if first >= last
+        return true
+    elsif s[first] != s[last]
+        return false
+    end
+
+    return pal_help(s, first + 1, last - 1)
 end
 
 # Digit match
