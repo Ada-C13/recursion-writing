@@ -55,7 +55,7 @@ def reverse_helper(s, first, last)
 end
 
 def reverse_inplace(s)
-    return reverse_helper(s, 0, s.length - 1)
+  return reverse_helper(s, 0, s.length - 1)
 end
 
 
@@ -165,25 +165,5 @@ end
 p fibonacci(-1)
 p fibonacci(0)
 p fibonacci(10)  # 0, 1, 1, 2, 3, 5, 8, 13, 21, 55
-# p fibonacci(100) # must use memoization because it takes a long time!
-
-module Fib
-  def self.compute(index)
-    f = fibonacci
-    index.times { f.call }
-    f.call
-  end
-
-  def self.fibonacci
-    first, second = 1, 0
-    Proc.new {
-      first, second = second, first + second
-      first
-    }
-  end
-end
-
-puts Fib.compute(10)
-puts Fib.compute(50)
-puts Fib.compute(100)
-puts Fib.compute(256)
+p fibonacci(100)
+# p fibonacci(200) # must use memoization because it takes a long time!
