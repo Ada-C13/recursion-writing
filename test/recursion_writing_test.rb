@@ -38,7 +38,7 @@ describe "factorial" do
   end
 end
 
-xdescribe "reverse" do
+describe "reverse" do
   it "will reverse 'cat'" do
     # Arrange
     string = "cat"
@@ -84,7 +84,7 @@ xdescribe "reverse" do
 end
 
 
-xdescribe "reverse_in_place" do
+describe "reverse_in_place" do
   it "will reverse 'cat'" do
     # Arrange
     string = "cat"
@@ -129,7 +129,7 @@ xdescribe "reverse_in_place" do
   end
 end
 
-xdescribe "bunny" do
+describe "bunny" do
   it "returns 0 for 0 bunnies" do
     # Arrange
     count = 0
@@ -164,7 +164,7 @@ xdescribe "bunny" do
   end
 end
 
-xdescribe "nested" do
+describe "nested" do
   it "will return true for empystring" do
     # Arrange
     string = ""
@@ -210,7 +210,7 @@ xdescribe "nested" do
   end
 end
 
-xdescribe "search" do
+describe "search" do
   it "will return false for empty array" do
     # Arrange
     item = "a"
@@ -260,7 +260,7 @@ xdescribe "search" do
     end      
 end
 
-xdescribe "is_palindrome" do
+describe "is_palindrome" do
   it "will return true for emptystring" do
     # Arrange
     string = ""
@@ -295,7 +295,7 @@ xdescribe "is_palindrome" do
   end
 end
 
-xdescribe "digit_match" do
+describe "digit_match" do
   it "returns 4 for 1072503891 and 62530841" do
     # Arrange
     num1 = 1072503891
@@ -355,4 +355,50 @@ xdescribe "digit_match" do
      # Assert
      expect(answer).must_equal 1
   end
+
+  describe "fib" do
+    it "returns 3 for n equal to 4" do
+      # Arrange
+      n = 4
+  
+      # Act
+      answer = fib(n)
+  
+       # Assert
+       expect(answer).must_equal 3
+    end
+  
+    it "returns 8 for n equal to 6" do
+      # Arrange
+      n = 6
+  
+      # Act
+      answer = fib(n)
+  
+       # Assert
+       expect(answer).must_equal 8
+    end
+  
+    it "returns 34 for n equal to 9" do
+      # Arrange
+      n = 9
+  
+      # Act
+      answer = fib(n)
+  
+       # Assert
+       expect(answer).must_equal 34
+    end
+    
+    it "returns 0 for n equal to 0" do
+      # Arrange
+      n = 0
+  
+      # Act
+      answer = fib(n)
+  
+       # Assert
+       expect(answer).must_equal 0
+    end    
+  end  
 end
