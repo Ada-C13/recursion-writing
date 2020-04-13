@@ -1,7 +1,7 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def factorial(n)
   # raise NotImplementedError, "Method not implemented"
   return 1 if n == 0
@@ -97,12 +97,24 @@ end
 
 # Time complexity: o(n)
 # Space complexity: o(n)
-def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
+
+def is_palindrome_helper(string, first = 0, last = string.length - 1)
+  while first < last
+    if string[first] != string[last]
+      return false
+    end
+    return is_palindrome_helper(string, first + 1, last - 1)
+  end
+  return true
 end
 
-# Time complexity: ?
-# Space complexity: ?
+def is_palindrome(s)
+  return true if s.empty?
+  return is_palindrome_helper(s)
+end
+
+# Time complexity: o(n)
+# Space complexity: o(n)
 def digit_match(n, m)
     raise NotImplementedError, "Method not implemented"
 end
