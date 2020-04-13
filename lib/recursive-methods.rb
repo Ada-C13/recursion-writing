@@ -17,22 +17,33 @@ def reverse(s)
   return s[-1] + reverse(s[0...-1])
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) ?
+# Space complexity: O(n) ?
 def reverse_inplace(s)
-    raise NotImplementedError, "Method not implemented"
+  return s if s.length <= 1
+  return s[-1] + reverse(s[0...-1])
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)?
+# Space complexity: O(n)?
 def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+  return n if n == 0
+  return 2 + bunny(n-1)
 end
 
 # Time complexity: ?
 # Space complexity: ?
 def nested(s)
-    raise NotImplementedError, "Method not implemented"
+  return true if s.length == 0
+  return false if s.length % 2 != 0
+
+  if s[0] + s[-1] == "()"
+    return nested(s[1...-1])
+  else
+    return false
+  end
+
+  
 end
 
 # Time complexity: ?
