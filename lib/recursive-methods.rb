@@ -87,25 +87,27 @@ def digit_match(n, m, sum = 0)
   return n.to_s.length if n == m
   return 1 if n == 0 && m == 0
 
-  if n < 10 || m < 10
-    return sum_from_single_digit_num(n, m, sum)  # helper method
-  end 
-
-  if n % 10 == m % 10    # if the last digit matches
-    return digit_match(n / 10, m / 10, sum + 1)
-  else
-    return digit_match(n / 10, m / 10, sum)
-  end
+  return digit_match_helper(n, m, sum)
 end
 
 
 # helper method
-def sum_from_single_digit_num(n, m, sum) 
-  if n % 10 == m % 10
-    return sum + 1 
-  else 
-    return sum 
-  end 
+def digit_match_helper(n, m, sum) 
+  # when one of numbers is a single digit number (number < 10)
+  if n < 10 || m < 10           
+    if n % 10 == m % 10
+      return sum + 1 
+    else 
+      return sum 
+    end 
+  end
+
+  # when numbers are greater than 9
+  if n % 10 == m % 10       # if the last digit matches
+    return digit_match(n / 10, m / 10, sum + 1)
+  else
+    return digit_match(n / 10, m / 10, sum)
+  end
 end 
 
 
