@@ -124,3 +124,17 @@ def match_helper(n, m, match)
     end
     return match_helper(n/10, m/10, match)
 end
+
+# Time complexity: O(n)
+# Space complexity: O(n)
+def fib(n)
+    return 0 if n == 0
+    fib_helper(0, 1, n-1)
+end
+
+def fib_helper(i, j, n)
+    # base case
+    return j if n == 0
+    # recursive case
+    return fib_helper(j, i+j, n-1)
+end
