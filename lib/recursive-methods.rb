@@ -40,7 +40,7 @@ end
 # Write a method `reverse_inplace` that accepts a string as a parameter and then reverses the string in place using a recursive algorithm.
 # - e.g. reverse("hello world") will convert the input string to "dlrow olleh"
 
-# Answer from example in class
+# From example in class
 
 # Time complexity: ?
 # Space complexity: ?
@@ -71,10 +71,36 @@ def bunny(n)
     return 2 + bunny(n-1)
 end
 
+# Nested
+
+# Write a method `nested` that accepts a string of only parenthesis and then returns if those parenthesis are properly nested. You may
+# assume that no non-parenthesis characters will be passed to this method.
+# - e.g. nested("((()))") = true
+# - e.g. nested("())") = false
+# **Challenge**: Try doing this without creating new strings in the process of solving the problem.
+
 # Time complexity: ?
 # Space complexity: ?
 def nested(s)
-    raise NotImplementedError, "Method not implemented"
+    if s.length.odd?
+        return false
+    elsif s == ""
+        return true
+    end
+
+    return nested_help(s, 0, s.length - 1)
+end
+
+def nested_help(s, first, last)
+    if first > last
+        return true
+    elsif s[first] == '(' && s[last] == ')'
+        return nested_help(s, first +1, last - 1)
+    else
+        return false
+    end
+
+    return s
 end
 
 # Time complexity: ?
