@@ -1,49 +1,115 @@
-# Authoring recursive algorithms. Add comments including time and space complexity for each method.
-
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def factorial(n)
-    raise NotImplementedError, "Method not implemented"
+    if n < 0
+        raise ArgumentError
+    elsif n == 0
+        return 1
+    else
+        return n * factorial(n-1)
+    end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n^2)
 def reverse(s)
-    raise NotImplementedError, "Method not implemented"
+    return "" if s.length == 0 
+    return s[-1] + reverse(s[0..-2])
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# helper method for reverse_inplace()
+# Time complexity: O(n)
+# Space complexity: O(n)
+def recursive_swap(s, low, high)
+    if high <= low
+        return s
+    else
+        s[low], s[high] = s[high], s[low]
+        return recursive_swap(s, low + 1, high - 1)
+    end
+end
+
+# Time complexity: O(n)
+# Space complexity: O(n)
 def reverse_inplace(s)
-    raise NotImplementedError, "Method not implemented"
+    return recursive_swap(s, 0, s.length - 1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+    return 0 if n == 0
+    return 2 + bunny(n-1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n^2)
 def nested(s)
-    raise NotImplementedError, "Method not implemented"
+    return false if s.length.odd?
+
+    if s == "()" || s == ""
+        return true
+    elsif s[0] != "(" || s[-1] != ")"
+        return false
+    else
+        return nested(s[1..-2])
+    end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n^2)
 def search(array, value)
-    raise NotImplementedError, "Method not implemented"
+    return false if array.empty?
+
+    if array[0] == value
+        return true
+    else
+        return search(array[1..-1], value)
+    end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n^2)
 def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
+    if s.length == 0
+        return true
+    elsif s[0] != s[-1]
+        return false
+    else
+        return is_palindrome(s[1..-2])
+    end
 end
 
-# Time complexity: ?
-# Space complexity: ?
-def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+# Time complexity: O(log base 10 of n)
+# Space complexity: O(log base 10 of n)
+def digit_match(num_1, num_2)
+
+    # check ones place first
+    if num_1 < 10 || num_2 < 10
+        return num_1 % 10 == num_2 % 10 ? 1 : 0
+    end
+
+    # if both nums > 10, check at least tens place
+    if num_1 % 10 == num_2 % 10
+        return 1 + digit_match(num_1/10, num_2/10)
+    end
+
+    return digit_match(num_1/10, num_2/10)
+end
+
+
+# ADDED FUN
+# fib sequence eg: (0 1 1 2 3 5 8 13 21 34)
+# Time complexity: O(n)
+# Space complexity: O(n)
+def fib(n)
+    if n < 0
+        raise ArgumentError    
+    elsif n == 0
+        return 0
+    elsif n == 1
+        return 1
+    else
+        return fib(n-2) + fib(n-1)
+    end
 end
