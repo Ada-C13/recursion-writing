@@ -23,6 +23,21 @@ def factorial(n)
     end
 end
 
+
+# Time complexity: 0(n) It will always go the length of the string plus a new variable. 
+# Space complexity: ?
+def reverse(s)
+	# base case
+		return s if s.length <= 1
+		# recursive case - with range argument found here:  https://ruby-doc.org/core-2.5.0/Range.html
+		reversed_str = reverse(s[1..-1])
+		# "t", "ta", "tac"
+		# new string that contains the first reversed character
+		reversed_str << s[0]
+		reversed_str
+	
+end
+
 # Time complexity: ?
 # Space complexity: ?
 def nested(s)
