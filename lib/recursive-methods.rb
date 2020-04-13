@@ -37,10 +37,10 @@ end
 
 # Time complexity: O(n)
 # Space complexity: O(n)
-def bunny(n, ear_count = 0)
-    return ear_count if n == 0
-    return bunny(n - 1, ear_count + 2)
-end
+def bunny(n)
+    return 0 if n == 0
+    return 2 + bunny(n-1)
+end 
 
 # Time complexity: O(n)
 # Space complexity: O(n)
@@ -70,13 +70,26 @@ end
 
 # Time complexity: ?
 # Space complexity: ?
-def digit_match(n, m, count = 0, i = - 1)
-    # return count if n[i] == nil || m[i] == nil 
-    return count if i < 0
-    if n[i] == m[i]
-        return(n, m, count = count + 1, i = i - 1)
-    else
-        return(n, m, i = i - 1)
-    end
+### this one doesn't work yet, still can't figure it out :(
+def negative(n)
+    amount = n.to_s
+    return ("-" + amount).to_i
+end 
 
+def digit_match(n, m, count = 0, i = -1)
+    n = n.to_s
+    m = m.to_s
+    puts negative(m.length + 1)
+    if n.length > m.length 
+        return count if i == negative(m.length + 1)
+    else 
+        return count if i == negative(n.length + 1)
+    end 
+    # return count if n[i] == nil || m[i] == nil 
+    if n[i] == m[i]
+        return digit_match(n, m, count = count + 1, i = i - 1)
+    else
+        return digit_match(n, m, i = i - 1)
+    end
 end
+
