@@ -52,7 +52,6 @@ def search(array, value)
   return false if array.length == 0
   return true if value == array[0]
   return search(array[1..-1], value)
-  return false
 end
 
 # Time complexity: O(n)?
@@ -66,8 +65,24 @@ def is_palindrome(s)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)?
+# Space complexity: O(n)?
 def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+  n_dig = n.digits
+  m_dig = m.digits
+
+  min = [n_dig.length, m_dig.length].min
+
+  return 0 if (n_dig.length == 1 || m_dig.length == 1) && (n_dig[0] != m_dig[0])
+  return 1 if (n_dig.length == 1 || m_dig.length == 1) && (n_dig[0] == m_dig[0])
+  
+  if n_dig[0] == m_dig[0]
+    n = n_dig[1..(min - 1)].join.reverse.to_i
+    m = m_dig[1..(min - 1)].join.reverse.to_i
+    return 1 + digit_match(n, m)
+  else
+    n = n_dig[1..(min - 1)].join.reverse.to_i
+    m = m_dig[1..(min - 1)].join.reverse.to_i
+    return digit_match(n, m)
+  end
 end
