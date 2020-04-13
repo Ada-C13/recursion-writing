@@ -35,10 +35,26 @@ def reverse(s)
     return reversed_s
 end
 
+# Reverse in place
+
+# Write a method `reverse_inplace` that accepts a string as a parameter and then reverses the string in place using a recursive algorithm.
+# - e.g. reverse("hello world") will convert the input string to "dlrow olleh"
+
+# Answer from example in class
+
 # Time complexity: ?
 # Space complexity: ?
 def reverse_inplace(s)
-    raise NotImplementedError, "Method not implemented"
+    return reverse_help(s, 0, s.length - 1)
+end
+
+def reverse_help(s, first = 0, last = s.length - 1)
+    if first < last
+        s[first], s[last] = s[last], s[first]
+        return reverse_help(s, first +1, last - 1)
+    end
+
+    return s
 end
 
 # Time complexity: ?
