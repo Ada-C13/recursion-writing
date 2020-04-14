@@ -67,5 +67,7 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+  # return 1 if n % 10 == m % 10
+  # return 0 if n % 10 != m % 10
+  # call the recursive method, pass in n/10 and m/10
 end
