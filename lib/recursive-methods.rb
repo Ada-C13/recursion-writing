@@ -10,7 +10,7 @@ end
 # Time complexity: O(n)
 # Space complexity: O(n^2), new string each time 
 def reverse(s)
-    s.length == 1 ? s : s[-1] + reverse(s[0..-2])
+    s.length == 0 ? s : s[-1] + reverse(s[0..-2])
 end
 
 # Time complexity: O(n/2) == O(n)
