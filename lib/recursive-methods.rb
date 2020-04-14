@@ -1,10 +1,5 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-
-# factorial(n) Write a method factorial that accepts an integer parameter n 
-# and that uses recursion to compute and return the value of n factorial (also known as n!).
-
-
 # Time complexity:  O(n)  
 # Space complexity: O(1)
 
@@ -22,12 +17,6 @@ def factorial(n)
 end
 
 
-
-# reverse(s) Write a method reverse that accepts a string as a parameter 
-# and then returns the reverse of the string by reversing all letters and 
-# all words in the string.
-
-
 # Time complexity: O(n)
 # Space complexity: O(n)
 def reverse(s)
@@ -40,9 +29,6 @@ def reverse(s)
         
 end
 
-
-# reverse_inplace(s) Write a method reverse_inplace that accepts a string as 
-# a parameter and then reverses the string in place using a recursive algorithm.
 
 # Time complexity: O(n) 
 # Space complexity: O(n^2)
@@ -67,6 +53,7 @@ def reverse_helper(s, first, last)
  reverse_helper(s, first + 1, last - 1)
 end
 
+
 # Time complexity: O(n)
 # Space complexity: O(n)
 def bunny(n)
@@ -78,8 +65,9 @@ def bunny(n)
     end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+
+# Time complexity: O(n/2)
+# Space complexity: O(n)
 def nested(s)
     if s.length == 0
       return true
@@ -96,8 +84,9 @@ def nested(s)
     end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+
+# Time complexity: O(n)
+# Space complexity: O(n)
 def search(array, value)
     if array.length == 0
       return false
@@ -110,8 +99,9 @@ def search(array, value)
     end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+
+# Time complexity: O(n/2)
+# Space complexity: O(n)
 def is_palindrome(s)
     if s.length <= 1
       return true
@@ -124,8 +114,27 @@ def is_palindrome(s)
     end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+
+# Time complexity: O(min(m,n))
+# Space complexity: O(min(m,n))
 def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+    # base case if both numbers are zero
+    if n == 0 && m == 0
+      return 1
+    end
+
+    # base case if one of the inputs is less than 10
+    if n < 10 or m < 10
+      if n % 10 == m % 10
+        return 1
+      else 
+        return 0
+      end
+    end
+  
+    if n % 10 == m % 10
+      return 1 + digit_match(n/10, m/10)
+    else
+      return digit_match(n/10, m/10)
+    end
 end
