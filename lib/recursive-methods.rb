@@ -36,7 +36,9 @@ end
 # Time complexity: O(n)
 # Space complexity: O(n)
 def nested(s)
-    raise NotImplementedError, "Method not implemented"
+    return true if s == ""
+    return false if (s.length == 1 || s[0] != "(" || s[-1] != ")" )
+    return nested(s[1..-2])
 end
 
 # Time complexity: O(n)
@@ -50,11 +52,18 @@ end
 # Time complexity: O(n)
 # Space complexity: O(n)
 def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
+    return true if (s == "" || s.length == 1)
+    return false if s[0] != s[-1]
+    return is_palindrome(s[1..-2])
 end
 
 # Time complexity: O(n)
 # Space complexity: O(n)
 def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+    n = n.to_s
+    m = m.to_s
+    
+    return 0 if (n.length == 0 || m.length == 0)
+    return (1 + digit_match(n[0..-2], m[0..-2])) if n[-1] == m[-1]
+    return digit_match(n[0..-2], m[0..-2])
 end
