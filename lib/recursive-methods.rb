@@ -17,8 +17,15 @@ end
 
 # Time complexity: ?
 # Space complexity: ?
+def reverse_helper(s, first, last)
+  # while first index < last index, swap letters at each position
+  # return reverse_helper, pass in s, first+1, last-1
+  # return s after recursion is finished 
+end
+
 def reverse_inplace(s)
-    raise NotImplementedError, "Method not implemented"
+  # base case: return s if s.length <= 1
+  # call helper method, pass in s, first index = 0 last index = s.length -1
 end
 
 # Time complexity: ?
