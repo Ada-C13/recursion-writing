@@ -44,8 +44,8 @@ end
 # Space complexity: ?
 def nested(s)
   return true if s.length == 0
-  return nested(s[1...-1]) if s[0] == "(" && s[-1] == ")"
-  return false 
+  return false if s[0] != "(" || s[-1] != ")"
+  return nested(s[1...-1])
 end
 
 # Time complexity: ?
@@ -60,8 +60,8 @@ end
 # Space complexity: ?
 def is_palindrome(s)
   return true if s.length <= 1
-  return is_palindrome(s[1...-1]) if s[0] == s[-1]
-  return false
+  return false if s[0] != s[-1]
+  return is_palindrome(s[1...-1])
 end
 
 # Time complexity: ?
