@@ -29,7 +29,8 @@ end
 # Time complexity: O(n)
 # Space complexity: O(n)
 def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+    return 0 if n == 0
+    return 2 + bunny(n-1)
 end
 
 # Time complexity: O(n)
