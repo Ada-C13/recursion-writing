@@ -19,6 +19,7 @@ def reverse(s)
   return "#{s[-1]}#{reverse(s[0...s.length-1])}"
 end
 
+# helper method
 def reverse_helper(s, first, last)
   if first < last 
     s[first], s[last] = s[last], s[first]
@@ -41,6 +42,7 @@ def bunny(n)
   return 2 + bunny(n-1)
 end
 
+# helper method
 def nested_helper(s, i, j)
   if i > j
     return true
@@ -69,7 +71,7 @@ def search(array, value, index=0)
   return search(array, value, index+1)
 end
 
-
+# helper method
 def is_palindrome_helper(s, i, j)
   return true if i >= j
   return false if s[i] != s[j]
