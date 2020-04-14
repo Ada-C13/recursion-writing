@@ -1,7 +1,7 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def factorial(n)
     if n < 0
         raise ArgumentError, "Will only accept positive intergar"
@@ -12,35 +12,35 @@ def factorial(n)
     return n * factorial(n-1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def reverse(s)
     return s if s.length == 0
 
     return "#{s[-1]}#{reverse(s[0...(s.length-1)])}"
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def reverse_inplace(s)
 
-def reverse_helper( s, first, last = s.length - 1 )
-    if first < last
-        temp = s[first]
-        s[first] = s[last]
-        s[last] =temp
-        ## s[first] , s[last] = s[last], s[first]
-        return reverse_helper(s, first + 1, last - 1)
-    end
+    def reverse_helper( s, first, last = s.length - 1 )
+        if first < last
+            temp = s[first]
+            s[first] = s[last]
+            s[last] = temp
+            ## s[first] , s[last] = s[last], s[first]
+            return reverse_helper(s, first + 1, last - 1)
+        end
 
-    return s
-end
+        return s
+    end
 
   return reverse_helper( s, 0, s.length - 1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def bunny(n)
     if n < 0
         raise ArgumentError, "can't have negative number for the bunny count!"
@@ -50,8 +50,8 @@ def bunny(n)
     return 2 + bunny(n-1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def nested(s)
     # will need the length to be even to make a pair
     if s.length.odd?
@@ -66,8 +66,8 @@ def nested(s)
     end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def search(array, value)
     if array.length == 0
         return false
@@ -87,8 +87,8 @@ def search(array, value)
     return search_helper(array, value, index = 0)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n/2) 
+# Space complexity: O(n)
 def is_palindrome(s)
     return true if s == ""
 
@@ -100,8 +100,8 @@ def is_palindrome(s)
     
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log n with base of 10)
+# Space complexity: O(log n with base of 10)
 def digit_match(n, m)
     # base case
     if n < 0 || m < 0
@@ -126,8 +126,8 @@ def digit_match(n, m)
 end
 
 #Added Fun
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(2^n)
+# Space complexity: O(n)
 # reference from Khan Academy youtube https://www.youtube.com/watch?v=zg-ddPbzcKM (with very detail explanation!)
 # Don't think I could come up with the answer without the video, very amazed that how short the code could be!!
 
