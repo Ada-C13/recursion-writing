@@ -59,9 +59,9 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def is_palindrome(s)
-  # return true if s.length <= 1
-  # move inward thru the string using recursion if the first char is equal to the last char
-  # return false if the chars don't match
+  return true if s.length <= 1
+  return is_palindrome(s[1...-1]) if s[0] == s[-1]
+  return false
 end
 
 # Time complexity: ?
