@@ -43,7 +43,9 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def nested(s)
-    raise NotImplementedError, "Method not implemented"
+  # return true for an empty string
+  # use recursion to move inward toward the middle of the string, check whether the first char is ( and the last char is )
+  # return false if the parens are improperly nested 
 end
 
 # Time complexity: ?
