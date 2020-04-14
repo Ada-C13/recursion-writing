@@ -51,7 +51,9 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def search(array, value)
-    raise NotImplementedError, "Method not implemented"
+  # return false if the array is empty
+  # return true if first element is the value
+  # return search(array minus the first element, value)
 end
 
 # Time complexity: ?
