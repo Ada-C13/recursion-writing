@@ -18,7 +18,7 @@ end
 # Time complexity: O(n)
 # Space complexity: O(n)
 def reverse_helper(s, first, last)
-  while first < last
+  if first < last
     temp = s[first]
     s[first] = s[last]
     s[last] = temp
@@ -70,6 +70,5 @@ end
 def digit_match(n, m)
   return 1 if n == 0 && m == 0
   return 0 if n <= 1 || m <= 1 
-  return 1 + digit_match(n / 10, m / 10) if n % 10 == m % 10
-  return 0 + digit_match(n / 10, m / 10) if n % 10 != m % 10
+  return n % 10 == m % 10 ? (1 + digit_match(n / 10, m / 10)) : digit_match(n / 10, m / 10)
 end
