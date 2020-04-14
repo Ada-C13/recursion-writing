@@ -59,7 +59,9 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
+  # return true if s.length <= 1
+  # move inward thru the string using recursion if the first char is equal to the last char
+  # return false if the chars don't match
 end
 
 # Time complexity: ?
