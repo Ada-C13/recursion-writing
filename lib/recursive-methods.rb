@@ -3,7 +3,9 @@
 # Time complexity: O(n)
 # Space complexity: O(n)
 def factorial(n)
-    return 1 if n == 1
+    raise ArgumentError if n < 0
+  
+    return 1 if n == 0
     return n * factorial(n-1)
 end
 
