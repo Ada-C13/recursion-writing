@@ -11,8 +11,8 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def reverse(s)
-  # base case: return the string when the length is equal to 1
-  # return the first character of the string and call reverse on the remaining characters of the string
+  return s if s.length <= 1
+  return reverse(s[1..-1]) + s[0]
 end
 
 # Time complexity: ?
