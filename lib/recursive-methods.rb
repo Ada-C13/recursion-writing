@@ -1,9 +1,10 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def factorial(n)
-    raise NotImplementedError, "Method not implemented"
+    return 1 if n == 1
+    return n * factorial(n-1)
 end
 
 # Time complexity: ?
