@@ -29,8 +29,8 @@ def reverse_helper(s, first, last)
 end
 
 def reverse_inplace(s)
-  # base case: return s if s.length <= 1
-  # call helper method, pass in s, first index = 0 last index = s.length -1
+  return s if s.length <= 1
+  reverse_helper(s, 0, s.length - 1)
 end
 
 # Time complexity: ?
