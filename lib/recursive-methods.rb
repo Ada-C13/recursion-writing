@@ -36,8 +36,8 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def bunny(n)
-  # base case: return n if n == 0
-  # add the number to itself twice
+  return n if n == 0
+  return 2 + bunny(n-1)
 end
 
 # Time complexity: ?
