@@ -20,7 +20,7 @@ end
 # Space complexity: O(n)
 def reverse_inplace(s)
     return s if s.length <= 1
-    return reverse(s[1..-1]) + s[0]
+    return reverse_inplace(s[1..-1]) + s[0]
 end
 
 #Was 'reverse' and 'reverse_inplace''supposed to be the same code, or am I missing something in 'reverse' 
