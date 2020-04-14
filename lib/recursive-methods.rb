@@ -18,9 +18,14 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def reverse_helper(s, first, last)
-  # while first index < last index, swap letters at each position
-  # return reverse_helper, pass in s, first+1, last-1
-  # return s after recursion is finished 
+  while first < last
+    temp = s[first]
+    s[first] = s[last]
+    s[last] = temp
+    return reverse_helper(s, first + 1, last - 1)
+  end
+
+  return s
 end
 
 def reverse_inplace(s)
