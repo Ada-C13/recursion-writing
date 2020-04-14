@@ -27,7 +27,7 @@ def bunny(n)
     n < 1 ? 0 : 2 + bunny(n-1)
 end
 
-# Time complexity: O(log n)
+# Time complexity: O(n/2) == O(n)
 # Space complexity: O(n)
 def nested(s, left = 0, right = s.length-1)
     return true if s.length == 0 || left == right + 1
