@@ -51,9 +51,9 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def search(array, value)
-  # return false if the array is empty
-  # return true if first element is the value
-  # return search(array minus the first element, value)
+  return false if array.empty?
+  return true if array[0] == value
+  return search(array[1..-1], value)
 end
 
 # Time complexity: ?
