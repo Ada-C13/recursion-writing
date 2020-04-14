@@ -36,7 +36,8 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+  # base case: return n if n == 0
+  # add the number to itself twice
 end
 
 # Time complexity: ?
