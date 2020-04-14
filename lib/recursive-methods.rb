@@ -43,9 +43,9 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def nested(s)
-  # return true for an empty string
-  # use recursion to move inward toward the middle of the string, check whether the first char is ( and the last char is )
-  # return false if the parens are improperly nested 
+  return true if s.length == 0
+  return nested(s[1...-1]) if s[0] == "(" && s[-1] == ")"
+  return false 
 end
 
 # Time complexity: ?
