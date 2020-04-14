@@ -67,7 +67,8 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def digit_match(n, m)
-  # return 1 if n % 10 == m % 10
-  # return 0 if n % 10 != m % 10
-  # call the recursive method, pass in n/10 and m/10
+  return 1 if n == 0 && m == 0
+  return 0 if n <= 1 || m <= 1 
+  return 1 + digit_match(n / 10, m / 10) if n % 10 == m % 10
+  return 0 + digit_match(n / 10, m / 10) if n % 10 != m % 10
 end
