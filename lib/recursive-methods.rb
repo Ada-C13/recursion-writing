@@ -11,7 +11,8 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def reverse(s)
-    raise NotImplementedError, "Method not implemented"
+  # base case: return the string when the length is equal to 1
+  # return the first character of the string and call reverse on the remaining characters of the string
 end
 
 # Time complexity: ?
