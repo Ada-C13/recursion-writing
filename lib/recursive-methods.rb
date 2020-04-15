@@ -47,9 +47,10 @@ def reverse_inplace(s)
 		s.length < 2 ? s : s[-1] + reverse_inplace(s[1..-2]) + s[0]
 end
 
+# ##############################################################
+# I don't understand how this is working...
 # Time complexity: 0(n)
 # Space complexity: 0(n)
-# I don't understand how this is working...
 # It took me some time to figure out how to make it recursive. I played with it in Repl, but 
 # I still cannot figure out what it's doing...how does it get 100 when the input is 50? 
 def bunny(n)
@@ -60,6 +61,7 @@ def bunny(n)
 			return 2 + bunny(n - 1) # this is recursive
 		end
 end
+# #############################################################
 
 # Time complexity: 0(n)
 # Space complexity: 0(n)
@@ -86,8 +88,8 @@ def search(array, value)
 	end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: 0(n)
+# Space complexity: 0(n)
 def is_palindrome(s)
   if s.length < 2
     return true
@@ -98,17 +100,23 @@ def is_palindrome(s)
   end
 end
 
-# Time complexity: ?
-# Space complexity: ?
-# 	def digit_match(n, m)
-# 		match = 0
-# 		return 0 if ((n < 10) || (m < 10)) && (n % 10 != m % 10)
-# 		return 1 if ((n < 10) || (m < 10)) && (n % 10 == m % 10)
-# 		if n % 10 == m % 10
-# 			match = 1
-# 		else
-# 			match = 0
-# 		end
-# 		return match + digit_match(n/10, m/10)
+# Time complexity: 0(n)
+# Space complexity: 0(n)
+	def digit_match(n, m)
+		match = 0
+			if ((n < 10) || (m < 10)) && (n % 10 != m % 10)
+				return 0
+			end
+			if ((n < 10) || (m < 10)) && (n % 10 == m % 10)
+				return 1
+			end
+		if n % 10 == m % 10
+			match = 1
+		else
+			match = 0
+		end
+		return match + digit_match(n / 10, m / 10)
 	
-# end
+end
+
+# Big O Notation is still confusing to me. Just when I think I understand it, I don't! 
