@@ -22,7 +22,8 @@ end
 def reverse(s)
   return s if s.length < 2
 
-  return s[-1] + reverse(s[0..-2])
+  return reverse(s[1..-1]) + s[0]    # Solution (1)
+  # return s[-1] + reverse(s[0..-2]) # Solution (2)
 end
 
 
@@ -48,15 +49,30 @@ end
 
 
 
-# Time complexity: O(n) => where n is the length of s
-# Space complexity: O(n^2) => because it creates a new string for each recursion
-def nested(s)
-  return true if s.empty?
-  return false if s.length.odd?
 
-  return (s[0] == "(" && s[-1] == ")") && nested(s[1..-2])
+# Solution (1)
+# Time complexity: O(n) => where n is the length of s
+# Space complexity: O(n) => because of the System Stack
+def nested(s, low = 0, high = s.length - 1)
+  if s.empty? || low >= high
+    return true 
+  elsif s.length.odd?
+    return false 
+  end 
+
+  return (s[low] == "(" && s[high] == ")") && nested(s, low + 1, high - 1)
 end
 
+
+# # Solution (2)
+# # Time complexity: O(n) => where n is the length of s
+# # Space complexity: O(n^2) => because it creates a new string for each recursion
+# def nested(s)
+#   return true if s.empty?
+#   return false if s.length.odd?
+
+#   return (s[0] == "(" && s[-1] == ")") && nested(s[1..-2])
+# end
 
 
 # Time complexity: O(n) => where n is the length of array
@@ -69,15 +85,31 @@ def search(array, value, i = 0)
 end
 
 
-
+# Solution (1)
 # Time complexity: O(n) => where n is the length of s
-# Space complexity: O(n^2) => because it creates a new string (s[1..-2]) for each recursion
-def is_palindrome(s)
-  return true if s.empty? || s.length == 1
-  return false if s[0] != s[-1]
+# Space complexity: O(n) => Because of the System Stack
+def is_palindrome(s, low = 0, high = s.length - 1)
+  if s.length < 2 || low >= high 
+    return true
+  elsif s[low] != s[high]
+    return false 
+  else  
+    return is_palindrome(s, low + 1, high - 1)
+  end 
 
-  return is_palindrome(s[1..-2])
+  return true
 end
+
+
+# # Solution (2)
+# # Time complexity: O(n) => where n is the length of s
+# # Space complexity: O(n^2) => because it creates a new string (s[1..-2]) for each recursion
+# def is_palindrome(s)
+#   return true if s.length < 2
+#   return false if s[0] != s[-1]
+
+#   return is_palindrome(s[1..-2])
+# end
 
 
 
@@ -93,21 +125,15 @@ end
 
 # helper method
 def digit_match_helper(n, m, sum) 
-  # when one of numbers is a single digit number (number < 10)
-  if n < 10 || m < 10           
-    if n % 10 == m % 10
-      return sum + 1 
-    else 
-      return sum 
-    end 
-  end
+  if n % 10 == m % 10
+    sum += 1 
+  end 
 
-  # when numbers are greater than 9
-  if n % 10 == m % 10       # if the last digit matches
-    return digit_match(n / 10, m / 10, sum + 1)
-  else
-    return digit_match(n / 10, m / 10, sum)
+  if n < 10 || m < 10    
+    return sum  
   end
+    
+  return digit_match(n / 10, m / 10, sum)
 end 
 
 
