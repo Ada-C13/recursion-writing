@@ -24,8 +24,8 @@ def factorial(n)
 end
 
 
-# Time complexity: 0(n) It will always go the length of the string plus a new variable. 
-# Space complexity: ?
+# Time complexity: 0(n^2) It will always go the length of the string plus a new variable. 
+# Space complexity: 0(n)
 def reverse(s)
 	# base case
 		return s if s.length <= 1
@@ -47,22 +47,31 @@ def reverse_inplace(s)
 		s.length < 2 ? s : s[-1] + reverse_inplace(s[1..-2]) + s[0]
 end
 
-# Time complexity: o(1) This perfoms one operation. The input is one number. 
-# Space complexity: 0(1)
-# I don't understand this being recursive?? It has a base case but it's not calling itself and getting smaller each time. 
-# This is confusing for a recursive method. I could not find examples of how to do this recursively. 
-# My steps from above: 	# 3. Write recursive call (one step simpler each time (n-1)
+# Time complexity: 0(n)
+# Space complexity: 0(n)
+# I don't understand how this is working...
+# It took me some time to figure out how to make it recursive. I played with it in Repl, but 
+# I still cannot figure out what it's doing...how does it get 100 when the input is 50? 
 def bunny(n)
+	# base case
 	return 0 if n < 1
 		if n >= 1
-			return n + n
+		# return	n + n (not recursive)
+			return 2 + bunny(n - 1) # this is recursive
 		end
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: 0(n)
+# Space complexity: 0(n)
 def nested(s)
-    raise NotImplementedError, "Method not implemented"
+	return true if s.length == 0;
+	return false if s.length == 1;
+	
+	if s[0] == "(" && s[-1] == ")"
+		return nested(s[1..-2])
+	else
+			return false
+	end
 end
 
 # Time complexity: ?
@@ -79,6 +88,15 @@ end
 
 # Time complexity: ?
 # Space complexity: ?
-def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
-end
+# 	def digit_match(n, m)
+# 		match = 0
+# 		return 0 if ((n < 10) || (m < 10)) && (n % 10 != m % 10)
+# 		return 1 if ((n < 10) || (m < 10)) && (n % 10 == m % 10)
+# 		if n % 10 == m % 10
+# 			match = 1
+# 		else
+# 			match = 0
+# 		end
+# 		return match + digit_match(n/10, m/10)
+	
+# end
