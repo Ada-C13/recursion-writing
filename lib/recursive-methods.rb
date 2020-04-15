@@ -162,8 +162,8 @@ def fibonacci(n)
     n <= 1 ? n :  fibonacci( n - 1 ) + fibonacci( n - 2 ) 
 end
 
-p fibonacci(-1)
-p fibonacci(0)
-p fibonacci(10)  # 0, 1, 1, 2, 3, 5, 8, 13, 21, 55
-p fibonacci(100)
+# p fibonacci(-1)
+# p fibonacci(0)
+# p fibonacci(10)  # 0, 1, 1, 2, 3, 5, 8, 13, 21, 55
+# p fibonacci(100)
 # p fibonacci(200) # must use memoization because it takes a long time!
