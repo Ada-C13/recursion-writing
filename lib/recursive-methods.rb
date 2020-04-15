@@ -159,7 +159,7 @@ end
 # phi = (1 – Sqrt[5]) / 2 an associated golden number
 
 def fibonacci(n)
-    n <= 1 ? n :  fibonacci( n - 1 ) + fibonacci( n - 2 ) 
+  n <= 1 ? n :  fibonacci( n - 1 ) + fibonacci( n - 2 ) 
 end
 
 # p fibonacci(-1)
