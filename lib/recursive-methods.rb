@@ -11,7 +11,10 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def reverse(s)
-    raise NotImplementedError, "Method not implemented"
+    return s if s.length <= 1
+    
+    shorter_s = s[1..(s.length - 1)]
+    return reverse(s[shorter_s]) + s[0]
 end
 
 # Time complexity: ?
