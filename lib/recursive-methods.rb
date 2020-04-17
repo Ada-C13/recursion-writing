@@ -3,7 +3,9 @@
 # Time complexity: ?
 # Space complexity: ?
 def factorial(n)
-    raise NotImplementedError, "Method not implemented"
+    return 1 if n == 0
+    raise ArgumentError, "Sorry! I can't calculate negative numbers!" if n < 0
+    return (n * factorial(n - 1))
 end
 
 # Time complexity: ?
