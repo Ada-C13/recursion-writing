@@ -34,7 +34,10 @@ end
 # Time complexity: ?
 # Space complexity: ?
 def bunny(n)
-    raise NotImplementedError, "Method not implemented"
+    #n is num of bunnies. compute total num of ears for all bunnies, no loops and no multiplication
+    return 0 if n == 0
+
+    return 2 + bunny(n - 1)
 end
 
 # Time complexity: ?
