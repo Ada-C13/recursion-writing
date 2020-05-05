@@ -1,26 +1,34 @@
 # Authoring recursive algorithms. Add comments including time and space complexity for each method.
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def factorial(n)
     return 1 if n == 0
     raise ArgumentError, "Sorry! I can't calculate negative numbers!" if n < 0
     return (n * factorial(n - 1))
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n2)
 def reverse(s)
     return s if s.length <= 1
     
-    shorter_s = s[1..(s.length - 1)]
-    return reverse(s[shorter_s]) + s[0]
+    short_s = s[1..(s.length - 1)]
+    return reverse(s[short_s]) + s[0]
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n)
 def reverse_inplace(s)
-    raise NotImplementedError, "Method not implemented"
+    return reverse_helper(s, 0, (s.length - 1))
+end
+
+def reverse_helper(s, i, j)
+    if i < j
+        s[i], s[j] = s[j], s[i]
+        return reverse_helper(s, (i + 1), (j - 1))
+    end
+    return s
 end
 
 # Time complexity: ?

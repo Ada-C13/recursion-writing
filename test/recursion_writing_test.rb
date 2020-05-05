@@ -3,7 +3,7 @@ require 'minitest/reporters'
 require "minitest/skip_dsl"
 require_relative '../lib/recursive-methods'
 
-describe "factorial" do
+xdescribe "factorial" do
   it "will find the factorial of 0" do
     # Arrange
     num = 0
@@ -38,7 +38,7 @@ describe "factorial" do
   end
 end
 
-describe "reverse" do
+xdescribe "reverse" do
   it "will reverse 'cat'" do
     # Arrange
     string = "cat"
@@ -84,7 +84,7 @@ describe "reverse" do
 end
 
 
-xdescribe "reverse_in_place" do
+describe "reverse_in_place" do
   it "will reverse 'cat'" do
     # Arrange
     string = "cat"
