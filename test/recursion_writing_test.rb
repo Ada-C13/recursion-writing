@@ -129,7 +129,7 @@ xdescribe "reverse_in_place" do
   end
 end
 
-describe "bunny" do
+xdescribe "bunny" do
   it "returns 0 for 0 bunnies" do
     # Arrange
     count = 0
@@ -164,7 +164,7 @@ describe "bunny" do
   end
 end
 
-xdescribe "nested" do
+describe "nested" do
   it "will return true for empystring" do
     # Arrange
     string = ""

@@ -31,19 +31,25 @@ def reverse_helper(s, i, j)
     return s
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n2)
+# Space complexity: O(n)
 def bunny(n)
-    #n is num of bunnies. compute total num of ears for all bunnies, no loops and no multiplication
     return 0 if n == 0
 
     return 2 + bunny(n - 1)
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def nested(s)
-    raise NotImplementedError, "Method not implemented"
+    left = 0
+    right = 0
+    s.each_char do |l|
+        left += 1 if l == "("
+        right += 1 if l == ")"
+    end
+    return true if left == right
+    return false
 end
 
 # Time complexity: ?
