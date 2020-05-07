@@ -67,22 +67,29 @@ def nested(s)
     end
 end
 #------------------------------------------------------------------------
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n^2), creates a new string on each recursive call
 def search(array, value)
-    raise NotImplementedError, "Method not implemented"
+  return false if array.empty?
+  return true if array[0] == value
+  return search(array[1..-1], value)
 end
 
 #------------------------------------------------------------------------
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(n^2), creates a new string on each recursive call
 def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
+  return true if s.length <= 1
+  return false if s[0] != s[-1]
+  return is_palindrome(s[1...-1])
 end
 
 #------------------------------------------------------------------------
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(log10(n))
+# Space complexity: O(log10(n))
+# Would both complexities O(log10(n*m)) since both n and m are being divided by 10 on each recursive call?
 def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+  return 1 if n == 0 && m == 0
+  return 0 if n <= 1 || m <= 1 
+  return n % 10 == m % 10 ? (1 + digit_match(n / 10, m / 10)) : digit_match(n / 10, m / 10)
 end
