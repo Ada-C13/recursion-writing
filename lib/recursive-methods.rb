@@ -52,26 +52,32 @@ def nested(s)
 	return false
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n)
+# Space complexity: O(1)
 def search(array, value)
-#accepts unsorted array of ints, return true if value is in it.
 	i = 0
 	if i < array.length
 		return true if array[i] == value
 		i += 1
 		return search(array[i..-1], value)
 	end
-	#base case
 	return false
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(1)
+# Space complexity: O(n)
 def is_palindrome(s)
-    raise NotImplementedError, "Method not implemented"
+	l = 0
+	r = s.length - 1
+	until l >= r
+		return false if s[l] != s[r]
+		l += 1
+		r -= 1
+	end
+	return true
 end
 
+is_palindrome("pennep")
 # Time complexity: ?
 # Space complexity: ?
 def digit_match(n, m)
