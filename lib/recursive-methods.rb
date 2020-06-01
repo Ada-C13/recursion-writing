@@ -86,8 +86,19 @@ def pal_helper(s, l, r)
 	return true
 end
 
-# Time complexity: ?
-# Space complexity: ?
+# Time complexity: O(n) with n being the shortest number
+# Space complexity: O(1)
 def digit_match(n, m)
-    raise NotImplementedError, "Method not implemented"
+	i = 0
+	count = 0
+	return digit_helper(n.digits, m.digits, i, count)
+end
+
+def digit_helper(n, m, i, count)
+	if n[i] != nil && m[i] != nil
+		count += 1 if n[i] == m[i]
+		i += 1
+		return digit_helper(n, m, i, count)
+	end
+	return count
 end
