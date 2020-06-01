@@ -67,20 +67,25 @@ def search_helper(array, value, i)
 	end
 	return false
 end
-# Time complexity: O(1)
-# Space complexity: O(n)
+
+# Time complexity: O(n)
+# Space complexity: O(1)
 def is_palindrome(s)
 	l = 0
 	r = s.length - 1
-	until l >= r
+	return pal_helper(s, l, r)
+end
+
+def pal_helper(s, l, r)
+	if l <= r
 		return false if s[l] != s[r]
 		l += 1
 		r -= 1
+		return pal_helper(s, l, r)
 	end
 	return true
 end
 
-is_palindrome("pennep")
 # Time complexity: ?
 # Space complexity: ?
 def digit_match(n, m)
