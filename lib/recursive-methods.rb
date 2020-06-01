@@ -56,14 +56,17 @@ end
 # Space complexity: O(1)
 def search(array, value)
 	i = 0
+	return search_helper(array, value, i)
+end
+
+def search_helper(array, value, i)
 	if i < array.length
 		return true if array[i] == value
 		i += 1
-		return search(array[i..-1], value)
+		return search_helper(array, value, i)
 	end
 	return false
 end
-
 # Time complexity: O(1)
 # Space complexity: O(n)
 def is_palindrome(s)
